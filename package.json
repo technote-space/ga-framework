@@ -1,0 +1,57 @@
+{
+  "name": "@technote-space/ts-package-template",
+  "version": "0.0.14",
+  "description": "Template for npm package.",
+  "author": {
+    "name": "Technote",
+    "email": "technote.space@gmail.com",
+    "url": "https://technote.space"
+  },
+  "license": "MIT",
+  "keywords": [
+    "github",
+    "github actions"
+  ],
+  "homepage": "https://github.com/technote-space/ts-package-template",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/technote-space/ts-package-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/technote-space/ts-package-template/issues"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@technote-space/github-action-test-helper": "^0.3.7",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.4",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.5",
+    "jest": "^25.5.4",
+    "jest-circus": "^25.5.4",
+    "lint-staged": "^10.2.2",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "setup": "if [[ $(uname -s) == 'Darwin' ]]; then BASH_ENV=~/.bashrc bash -O expand_aliases bin/setup.sh; else bash bin/setup.sh; fi && if [[ -f __DELETE__ ]]; then rm -rdf bin __DELETE__; fi",
+    "build": "tsc",
+    "test": "yarn lint && yarn cover",
+    "lint": "eslint 'src/**/*.ts' '__tests__/**/*.ts' --cache",
+    "lint:fix": "eslint --fix 'src/**/*.ts' '__tests__/**/*.ts'",
+    "cover": "jest --coverage",
+    "update": "ncu -u && yarn install && yarn upgrade && yarn audit"
+  }
+}
