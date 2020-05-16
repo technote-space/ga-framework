@@ -1,0 +1,56 @@
+import React, {useReducer, createContext, useContext, useCallback, useMemo, useEffect, FC} from 'react';
+import {AppOptions} from '../types';
+
+const getReducer = (options: AppOptions) => (store, action): object => {
+  switch (action.type) {
+    case 'PAGE':
+      return {...store, page: action.page};
+    case 'LOCALE':
+      return {...store, locale: action.locale};
+    case 'THEME_COLOR':
+      return {...store, themeColor: action.themeColor};
+    default:
+      if (options.store?.reducer) {
+        return options.store.reducer(store, action);
+      }
+
+      return store;
+  }
+};
+
+const StoreContext           = createContext({});
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const useStoreContext = (): any => useContext(StoreContext);
+
+const DispatchContext           = createContext({});
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const useDispatchContext = (): any => useContext(DispatchContext);
+
+export const StoreContextProvider: FC<{
+  children;
+  options: AppOptions;
+}> = ({children, options}) => {
+  const initialState      = {
+    page: options.firstPage ?? Object.keys(options.pages)[0],
+    themeColor: 'dark',
+    status: 'none',
+  };
+  const [store, dispatch] = useReducer(getReducer(options), options.store?.state ? options.store.state(initialState) : initialState);
+
+  const onReloadNeeded = useCallback(async() => {
+    //
+  }, []);
+
+  useEffect(() => {
+    onReloadNeeded().then();
+  }, []);
+
+  return useMemo(
+    () =>
+      <StoreContext.Provider value={{store}}>
+        <DispatchContext.Provider value={{dispatch, onReloadNeeded}}>
+          {children}
+        </DispatchContext.Provider>
+      </StoreContext.Provider>
+    , [store]);
+};
