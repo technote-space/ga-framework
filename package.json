@@ -24,7 +24,8 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "webpack.common.js"
+    "webpack.common.js",
+    "src/assets/images"
   ],
   "dependencies": {
     "@egjs/hammerjs": "^2.0.17",
