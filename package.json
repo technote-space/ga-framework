@@ -60,7 +60,7 @@
     "babel-plugin-i18next-extract": "^0.7.2",
     "babel-plugin-react-html-attrs": "^3.0.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "copy-webpack-plugin": "^6.0.0",
+    "copy-webpack-plugin": "^6.0.1",
     "eslint": "^7.0.0",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.2",
