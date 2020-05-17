@@ -99,7 +99,9 @@ const NavContentEx: FC<{
         options.controllerListener(dispatch, result);
       }
     }, {
-      context: options?.getWorkerContext ? options?.getWorkerContext() : undefined,
+      context: {
+        data: options?.getWorkerContext ? options?.getWorkerContext() : undefined,
+      },
     });
     setWorker(worker);
     worker.reset();
