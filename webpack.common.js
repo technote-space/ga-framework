@@ -42,14 +42,17 @@ module.exports = {
   },
   resolve: {
     mainFields: ['browser', 'main', 'module'],
-    extensions: ['.ts', '.tsx', '.json'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   },
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(jsx?|tsx?)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: {
+          loader: 'babel-loader',
+          options: require('./babel.config'),
+        },
       },
       {
         test: /\.html$/,

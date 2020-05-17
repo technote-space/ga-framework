@@ -25,7 +25,8 @@
   "files": [
     "dist",
     "webpack.common.js",
-    "src/assets/images"
+    "src/assets",
+    "src/public"
   ],
   "dependencies": {
     "@egjs/hammerjs": "^2.0.17",
