@@ -21,11 +21,11 @@ const HeaderEx: FC<{
   const classes   = useStyles();
   const titleView = useMemo(() => <Typography noWrap color={'textSecondary'} className={classes.header}>{options.title}</Typography>, [classes]);
 
-  return <div>
+  return <>
     {useMemo(() => options.parts?.beforeHeaderTitle, [])}
     {titleView}
     {useMemo(() => options.parts?.afterHeaderTitle, [])}
-  </div>;
+  </>;
 };
 
 export default HeaderEx;

@@ -11,7 +11,7 @@ global['Process'] = class Process extends ProcessBase<any> {
     super();
 
     importScripts(context['path'] ?? 'algorithm.js');
-    this.algorithm = new global[context['className'] ?? 'GeneticAlgorithm'](context['data'] ?? undefined);
+    this.algorithm = new global[context['className'] ?? 'GeneticAlgorithm'](callback, context['data'] ?? undefined);
   }
 
   public get isFinished(): boolean {
