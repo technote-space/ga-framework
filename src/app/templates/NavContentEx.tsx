@@ -98,17 +98,19 @@ const NavContentEx: FC<{
       if (options.controllerListener) {
         options.controllerListener(dispatch, result);
       }
+    }, {
+      context: options?.getWorkerContext ? options?.getWorkerContext() : undefined,
     });
     setWorker(worker);
     worker.reset();
   }, []);
 
-  return <>
-    {options.parts?.beforeMenu}
+  return <div>
+    {useMemo(() => options.parts?.beforeMenu, [])}
     {menu}
     {controller}
-    {options.parts?.afterMenu}
-  </>;
+    {useMemo(() => options.parts?.afterMenu, [])}
+  </div>;
 };
 
 export default NavContentEx;

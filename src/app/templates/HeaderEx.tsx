@@ -18,12 +18,14 @@ const useStyles = makeStyles(({breakpoints}) => createStyles({
 const HeaderEx: FC<{
   options: AppOptions;
 }> = ({options}) => {
-  const classes = useStyles();
-  return useMemo(() => <div>
-    {options.parts?.beforeHeaderTitle}
-    <Typography noWrap color={'textSecondary'} className={classes.header}>{options.title}</Typography>
-    {options.parts?.afterHeaderTitle}
-  </div>, [classes]);
+  const classes   = useStyles();
+  const titleView = useMemo(() => <Typography noWrap color={'textSecondary'} className={classes.header}>{options.title}</Typography>, [classes]);
+
+  return <div>
+    {useMemo(() => options.parts?.beforeHeaderTitle, [])}
+    {titleView}
+    {useMemo(() => options.parts?.afterHeaderTitle, [])}
+  </div>;
 };
 
 export default HeaderEx;

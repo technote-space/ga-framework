@@ -12,7 +12,7 @@ const Switching: FC<{
     // eslint-disable-next-line no-magic-numbers
     window.scrollTo(0, 0);
     if (page in options.pages) {
-      setNextPage(options.pages[page].component);
+      setNextPage(options.pages[page].component());
     }
   }, [page]);
 
