@@ -41,9 +41,9 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "styled-components": "^5.1.0",
-    "vis-data": "^6.5.1",
+    "vis-data": "^6.5.2",
     "vis-network": "^7.6.4",
-    "vis-util": "^4.0.0"
+    "vis-util": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

@@ -6605,20 +6605,20 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vis-data@^6.5.1:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/vis-data/-/vis-data-6.5.1.tgz#cd11f8bbf4a17064559b7c75532c3d6f419ff290"
-  integrity sha512-bOIG0REskXot0JbuAYLFRR61xf4ls+nIYNnZ7X04iq2y/Vrg896A/bfquQjhsERZipOmCgllAR0d58OGyo9s0g==
+vis-data@^6.5.2:
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/vis-data/-/vis-data-6.5.2.tgz#222168588a7b55de8c290ca010cd1451590ffd17"
+  integrity sha512-aNzjAVoHeJGW4+aHWX0kyee1JPbxlVmdz6d09o9jlVB4oQ13piB4tHKz4OyBRcxIBKe5nGNBdSJgVfXSZ/N/Pg==
 
 vis-network@^7.6.4:
   version "7.6.4"
   resolved "https://registry.yarnpkg.com/vis-network/-/vis-network-7.6.4.tgz#64d59f65072ce164e8abcdc520a2bab480673980"
   integrity sha512-ywaigcV75m3SbZLeKeR1ZYfLeL88EraIdH0G6O6drr62TsosJ6p1HGWmgGy0YfGJ4DaEf/hnJ5JaQNzBpIRGbQ==
 
-vis-util@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/vis-util/-/vis-util-4.0.0.tgz#a9900cffb0bbcef3ce88d5834f82b03808101e10"
-  integrity sha512-HLInh9yhJe3AH8I9tgWna304jYABa47Y9kO4M0QKtgSLnVgz7xK0952HFCeGMBJWMXr9XXWporoz/XqND15ukQ==
+vis-util@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/vis-util/-/vis-util-4.0.1.tgz#aa5415a35ca041c4f8e8dd603c289e2bf689432f"
+  integrity sha512-g8++Fe16DRGPrQVGBwMwaqsHyF1jPzrPrxgtQ+7PF6XR4l2vL6PXz8vGaV9oRqrX3uZvFK1qEnlqwb6sLbXYuA==
 
 vm-browserify@^1.0.1:
   version "1.1.2"
