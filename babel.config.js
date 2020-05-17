@@ -18,7 +18,6 @@ module.exports = {
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-transform-react-inline-elements',
     'react-html-attrs',
-    'react-hot-loader/babel',
     'transform-class-properties',
     [
       'i18next-extract', {

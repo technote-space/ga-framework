@@ -52,11 +52,11 @@ const App: FC<{
         <CssBaseline/>
         <Header>
           <Toolbar>
-            <SidebarTrigger sidebarId="7ClGecYpE1"/>
+            <SidebarTrigger sidebarId="primarySidebar"/>
             <HeaderEx options={options}/>
           </Toolbar>
         </Header>
-        <DrawerSidebar sidebarId="7ClGecYpE1">
+        <DrawerSidebar sidebarId="primarySidebar">
           <SidebarContent>
             <NavContentEx options={options}/>
           </SidebarContent>

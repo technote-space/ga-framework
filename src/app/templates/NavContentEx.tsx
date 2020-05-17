@@ -9,7 +9,7 @@ import {
   ListItemText,
   Button,
 } from '@material-ui/core';
-import {useLayoutCtx} from '@mui-treasury/layout';
+import {useSidebar} from '@mui-treasury/layout/hooks';
 import clsx from 'clsx';
 import {Controller, IController} from '@technote-space/worker-controller';
 import {useStoreContext, useDispatchContext} from '../Store';
@@ -47,19 +47,17 @@ const NavContentEx: FC<{
 }> = ({options}) => {
   const {store: {page}}     = useStoreContext();
   const {dispatch}          = useDispatchContext();
-  const ctx                 = useLayoutCtx();
   const classes             = useStyles();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [worker, setWorker] = useState<IController<any> | null>(null);
+  const {setOpen}           = useSidebar('primarySidebar');
 
   const switchPerspective = next => (): void => {
     if (next !== page) {
       dispatch({type: 'PAGE', page: next});
     }
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
-    ctx.setOpened(false);
+    setOpen('primarySidebar', false);
   };
 
   const menu = useMemo(() => <List>

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {StoreContextProvider} from './app/Store';
 import App from './app/App';
-import './assets/css/style.scss';
 import {AppOptions} from './types';
 
 export const initialize = (options: AppOptions): void => {
