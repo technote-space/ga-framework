@@ -1,7 +1,7 @@
-import React, {useMemo, FC} from 'react';
+import React, {useMemo, FC, useEffect} from 'react';
 import {Helmet} from 'react-helmet';
 import styled from 'styled-components';
-import {
+import LayoutBuilder, {
   Root,
   getHeader,
   getDrawerSidebar,
@@ -9,20 +9,20 @@ import {
   getContent,
   getSidebarTrigger,
 } from '@mui-treasury/layout';
-import {getMuiTreasuryScheme} from '@mui-treasury/layout/presets';
 import {
   Toolbar,
   CssBaseline,
 } from '@material-ui/core';
-import {createMuiTheme, ThemeProvider, responsiveFontSizes, makeStyles, createStyles} from '@material-ui/core/styles';
+import {createMuiTheme, responsiveFontSizes, makeStyles, createStyles} from '@material-ui/core/styles';
 import {useTheme} from './hooks';
 import {
   ContentEx,
   HeaderEx,
   NavContentEx,
 } from './templates';
-import {useStoreContext} from './Store';
+import {useDispatchContext, useStoreContext} from './Store';
 import {AppOptions} from '../types';
+import {Controller, StatusResult} from '@technote-space/worker-controller';
 
 const useStyles = makeStyles(() => createStyles({
   content: {
@@ -30,41 +30,86 @@ const useStyles = makeStyles(() => createStyles({
   },
 }));
 
-const muiTreasuryPreset = getMuiTreasuryScheme();
-const Header            = getHeader(styled);
-const DrawerSidebar     = getDrawerSidebar(styled);
-const SidebarContent    = getSidebarContent(styled);
-const SidebarTrigger    = getSidebarTrigger(styled);
-const Content           = getContent(styled);
+const scheme = LayoutBuilder();
+scheme.configureHeader(builder => {
+  builder
+    .registerConfig('xs', {
+      position: 'sticky',
+      initialHeight: 56,
+    })
+    .registerConfig('md', {
+      position: 'sticky',
+      initialHeight: 64,
+      clipped: true,
+    });
+});
+scheme.configureEdgeSidebar(builder => {
+  builder
+    .create('primarySidebar', {
+      anchor: 'left',
+    })
+    .registerTemporaryConfig('xs', {
+      width: 275,
+    })
+    .registerPermanentConfig('md', {
+      width: 275,
+      collapsible: false,
+    })
+    .registerPermanentConfig('lg', {
+      width: 275,
+      collapsible: false,
+    });
+});
+const Header         = getHeader(styled);
+const DrawerSidebar  = getDrawerSidebar(styled);
+const SidebarContent = getSidebarContent(styled);
+const SidebarTrigger = getSidebarTrigger(styled);
+const Content        = getContent(styled);
 
 const App: FC<{
   options: AppOptions;
 }> = ({options}: { options: AppOptions }) => {
   const {store: {themeColor}} = useStoreContext();
+  const {dispatch}            = useDispatchContext();
   const themeObject           = useTheme(themeColor);
   const theme                 = responsiveFontSizes(createMuiTheme(themeObject));
   const classes               = useStyles({theme});
 
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const worker = new Controller((result: any | StatusResult) => {
+      if ('status' in result) {
+        dispatch({type: 'UPDATE_STATUS', result});
+      } else if (options.controllerListener) {
+        options.controllerListener(dispatch, result);
+      }
+    }, {
+      context: {
+        data: options?.getWorkerContext ? options?.getWorkerContext() : undefined,
+      },
+    });
+    dispatch({type: 'WORKER', worker});
+    worker.reset();
+  }, []);
+
   return useMemo(() => (
-    <Root scheme={muiTreasuryPreset}>
+    <Root scheme={scheme} theme={theme}>
       <Helmet title={options.title}/>
-      <ThemeProvider theme={theme}>
-        <CssBaseline/>
-        <Header>
-          <Toolbar>
-            <SidebarTrigger sidebarId="primarySidebar"/>
-            <HeaderEx options={options}/>
-          </Toolbar>
-        </Header>
-        <DrawerSidebar sidebarId="primarySidebar">
-          <SidebarContent>
-            <NavContentEx options={options}/>
-          </SidebarContent>
-        </DrawerSidebar>
-        <Content className={classes.content}>
-          <ContentEx options={options}/>
-        </Content>
-      </ThemeProvider>
+      <CssBaseline/>
+      <Header>
+        <Toolbar>
+          <SidebarTrigger sidebarId="primarySidebar"/>
+          <HeaderEx options={options}/>
+        </Toolbar>
+      </Header>
+      <DrawerSidebar sidebarId="primarySidebar">
+        <SidebarContent>
+          <NavContentEx options={options}/>
+        </SidebarContent>
+      </DrawerSidebar>
+      <Content className={classes.content}>
+        <ContentEx options={options}/>
+      </Content>
     </Root>
   ), [classes, theme]);
 };

@@ -5,10 +5,12 @@ const getReducer = (options: AppOptions) => (store, action): object => {
   switch (action.type) {
     case 'PAGE':
       return {...store, page: action.page};
-    case 'LOCALE':
-      return {...store, locale: action.locale};
     case 'THEME_COLOR':
       return {...store, themeColor: action.themeColor};
+    case 'WORKER':
+      return {...store, worker: action.worker};
+    case 'UPDATE_STATUS':
+      return {...store, status: action.result.status};
     default:
       if (options.store?.reducer) {
         return options.store.reducer(store, action);
@@ -34,6 +36,7 @@ export const StoreContextProvider: FC<{
     page: options.firstPage ?? Object.keys(options.pages)[0],
     themeColor: 'dark',
     status: 'none',
+    worker: null,
   };
   const [store, dispatch] = useReducer(getReducer(options), options.store?.state ? options.store.state(initialState) : initialState);
 
