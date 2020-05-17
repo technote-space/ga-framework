@@ -32,7 +32,7 @@
   "dependencies": {
     "@egjs/hammerjs": "^2.0.17",
     "@material-ui/core": "^4.9.14",
-    "@mui-treasury/layout": "^4.2.1",
+    "@mui-treasury/layout": "^4.2.2",
     "@technote-space/genetic-algorithms-js": "^0.4.3",
     "@technote-space/worker-controller": "^0.2.1",
     "clsx": "^1.1.0",
@@ -42,9 +42,9 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "styled-components": "^5.1.0",
-    "vis-data": "^6.5.2",
-    "vis-network": "^7.6.4",
-    "vis-util": "^4.0.1"
+    "vis-data": "^6.5.3",
+    "vis-network": "^7.6.5",
+    "vis-util": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

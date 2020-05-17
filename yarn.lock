@@ -1141,10 +1141,10 @@
     prop-types "^15.7.2"
     react-is "^16.8.0"
 
-"@mui-treasury/layout@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@mui-treasury/layout/-/layout-4.2.1.tgz#5a7a34a8831ca26217bd49ac1eca3eab241be1d0"
-  integrity sha512-aNfCfwuduRpWhkbR7gIJju1NLmLplychCpsmjnH3oxC5PYPiA5qD4MVKKZfs5wrJUVE5mE3GzXviX6QkMmakSg==
+"@mui-treasury/layout@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@mui-treasury/layout/-/layout-4.2.2.tgz#10da3e86c95b73e05a8f065ba284b8298e064c56"
+  integrity sha512-OJTv+mpRHUWBToijLHfcrZozGraHkmMRk6T+0olzMGbR0QnRZKCQ44WJjXyUW3Ax+BlbCnHVKEeqVFqxeZkwbw==
   dependencies:
     debounce "^1.2.0"
     deepmerge "^4.2.2"
@@ -6605,20 +6605,20 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vis-data@^6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/vis-data/-/vis-data-6.5.2.tgz#222168588a7b55de8c290ca010cd1451590ffd17"
-  integrity sha512-aNzjAVoHeJGW4+aHWX0kyee1JPbxlVmdz6d09o9jlVB4oQ13piB4tHKz4OyBRcxIBKe5nGNBdSJgVfXSZ/N/Pg==
+vis-data@^6.5.3:
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/vis-data/-/vis-data-6.5.3.tgz#39b3b66f93a393b9f2a61416e0185505e210d6f2"
+  integrity sha512-y7NlLWKnzEfVVUT6LYZrTbZGrFummHlHlRa/cv8OWL5O52fi9l0qUsHk/VhBkEEuoQRR+u6ZMyriFauvXXtSKQ==
 
-vis-network@^7.6.4:
-  version "7.6.4"
-  resolved "https://registry.yarnpkg.com/vis-network/-/vis-network-7.6.4.tgz#64d59f65072ce164e8abcdc520a2bab480673980"
-  integrity sha512-ywaigcV75m3SbZLeKeR1ZYfLeL88EraIdH0G6O6drr62TsosJ6p1HGWmgGy0YfGJ4DaEf/hnJ5JaQNzBpIRGbQ==
+vis-network@^7.6.5:
+  version "7.6.5"
+  resolved "https://registry.yarnpkg.com/vis-network/-/vis-network-7.6.5.tgz#29e324b195cbdff8ace8c783d40c6ab9c51b427b"
+  integrity sha512-iuYywG5zpZT4nrPj6P081PqcD9eaJRVFbqXI2K46kblkyQhpMr7uvzu2G+6LAlFasCbfSk4lYRUq9b0SfiYAaA==
 
-vis-util@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/vis-util/-/vis-util-4.0.1.tgz#aa5415a35ca041c4f8e8dd603c289e2bf689432f"
-  integrity sha512-g8++Fe16DRGPrQVGBwMwaqsHyF1jPzrPrxgtQ+7PF6XR4l2vL6PXz8vGaV9oRqrX3uZvFK1qEnlqwb6sLbXYuA==
+vis-util@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/vis-util/-/vis-util-4.0.2.tgz#3e500eb85ceedd45cbfca90a0b0371a36e9be46b"
+  integrity sha512-clGBek4sgafknI6CnGUZTRY0PVRr1meh8bVtEfpJVe1u1uC+t5J2ODrTVelhIPdvFtEVnfNcrrzQOo/3eSCAiw==
 
 vm-browserify@^1.0.1:
   version "1.1.2"
