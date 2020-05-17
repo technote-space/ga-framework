@@ -25,6 +25,7 @@
   "files": [
     "dist",
     "webpack.common.js",
+    "babel.config.js",
     "src/assets",
     "src/public"
   ],
