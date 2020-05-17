@@ -1,6 +1,6 @@
 {
   "name": "@technote-space/ga-framework",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "GA Framework",
   "author": {
     "name": "Technote",
@@ -25,6 +25,7 @@
   "files": [
     "dist",
     "webpack.common.js",
+    "babel.config.js",
     "src/assets",
     "src/public"
   ],
@@ -33,7 +34,7 @@
     "@material-ui/core": "^4.9.14",
     "@mui-treasury/layout": "^4.2.1",
     "@technote-space/genetic-algorithms-js": "^0.4.3",
-    "@technote-space/worker-controller": "^0.2.0",
+    "@technote-space/worker-controller": "^0.2.1",
     "clsx": "^1.1.0",
     "keycharm": "^0.3.1",
     "moment": "^2.25.3",

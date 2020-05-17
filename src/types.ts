@@ -5,7 +5,7 @@ export type AppOptions = {
   pages: {
     [key: string]: {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      component: FC<any>;
+      component: () => FC<any>;
       icon: string;
       text: string;
     };
@@ -23,4 +23,6 @@ export type AppOptions = {
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   controllerListener?: (dispatch: Function, result: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  getWorkerContext?: () => any;
 }
