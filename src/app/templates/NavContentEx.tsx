@@ -1,4 +1,4 @@
-import React, {FC, useMemo} from 'react';
+import React, {FC, useMemo, useCallback} from 'react';
 import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
 import {grey, orange} from '@material-ui/core/colors';
 import {
@@ -88,10 +88,10 @@ const NavContentEx: FC<{
   </div>, [worker, status, classes]);
 
   return <>
-    {useMemo(() => options.parts?.beforeMenu, [])}
+    {options.parts?.beforeMenu ? options.parts.beforeMenu() : null}
     {menu}
     {controller}
-    {useMemo(() => options.parts?.afterMenu, [])}
+    {options.parts?.afterMenu ? options.parts.afterMenu() : null}
   </>;
 };
 
