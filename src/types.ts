@@ -12,10 +12,10 @@ export type AppOptions = {
   };
   firstPage?: string;
   parts?: {
-    beforeMenu?: FC;
-    afterMenu?: FC;
-    beforeHeaderTitle?: FC;
-    afterHeaderTitle?: FC;
+    beforeMenu?: () => FC;
+    afterMenu?: () => FC;
+    beforeHeaderTitle?: () => FC;
+    afterHeaderTitle?: () => FC;
   };
   store?: {
     state?: (state: object) => object;

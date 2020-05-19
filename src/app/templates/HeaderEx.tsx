@@ -1,7 +1,6 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {makeStyles, createStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import {useMemo} from 'react';
 import {AppOptions} from '../../types';
 
 const useStyles = makeStyles(({breakpoints}) => createStyles({
@@ -22,9 +21,9 @@ const HeaderEx: FC<{
   const titleView = useMemo(() => <Typography noWrap color={'textSecondary'} className={classes.header}>{options.title}</Typography>, [classes]);
 
   return <>
-    {useMemo(() => options.parts?.beforeHeaderTitle, [])}
+    {options.parts?.beforeHeaderTitle ? options.parts.beforeHeaderTitle() : null}
     {titleView}
-    {useMemo(() => options.parts?.afterHeaderTitle, [])}
+    {options.parts?.afterHeaderTitle ? options.parts.afterHeaderTitle() : null}
   </>;
 };
 
