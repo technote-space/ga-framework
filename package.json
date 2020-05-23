@@ -1,6 +1,6 @@
 {
   "name": "@technote-space/ga-framework",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "GA Framework",
   "author": {
     "name": "Technote",
@@ -37,13 +37,13 @@
     "@technote-space/worker-controller": "^0.2.1",
     "clsx": "^1.1.0",
     "keycharm": "^0.3.1",
-    "moment": "^2.25.3",
+    "moment": "^2.26.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "styled-components": "^5.1.0",
     "vis-data": "^6.5.3",
-    "vis-network": "^7.6.7",
+    "vis-network": "^7.6.8",
     "vis-util": "^4.0.2"
   },
   "devDependencies": {
@@ -57,7 +57,7 @@
     "@babel/preset-typescript": "^7.9.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@types/node": "^14.0.1",
+    "@types/node": "^14.0.4",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "babel-plugin-i18next-extract": "^0.7.2",
@@ -70,7 +70,7 @@
     "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.4",
-    "typescript": "^3.9.2",
+    "typescript": "^3.9.3",
     "webpack": "^4.43.0"
   },
   "publishConfig": {
