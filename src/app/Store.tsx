@@ -1,7 +1,8 @@
 import React, {useReducer, createContext, useContext, useCallback, useMemo, useEffect, FC} from 'react';
 import {AppOptions} from '../types';
 
-const getReducer = (options: AppOptions) => (store, action): object => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const getReducer = (options: AppOptions) => (store, action): any => {
   switch (action.type) {
     case 'PAGE':
       return {...store, page: action.page};
