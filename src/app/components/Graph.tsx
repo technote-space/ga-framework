@@ -12,7 +12,8 @@ const useStyles = makeStyles(() => createStyles({
 const Graph: FC<{
   nodes: Array<Node>;
   edges: Array<Edge>;
-  options?: object;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  options?: any;
 }> = ({nodes, edges, options = {}}) => {
   const classes   = useStyles();
   const container = useRef<HTMLDivElement>(null);
