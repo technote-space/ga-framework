@@ -80,8 +80,8 @@
   "scripts": {
     "build": "tsc",
     "test": "yarn lint",
-    "lint": "eslint './src/app/**/*.{ts,tsx}' --cache",
-    "lint:fix": "eslint --fix './src/app/**/*.{ts,tsx}'",
+    "lint": "eslint './src/**/*.{ts,tsx}' --cache",
+    "lint:fix": "eslint --fix './src/**/*.{ts,tsx}'",
     "update": "npx ncu -u && yarn install && yarn upgrade && yarn audit"
   }
 }

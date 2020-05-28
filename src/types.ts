@@ -18,11 +18,13 @@ export type AppOptions = {
     afterHeaderTitle?: () => FC;
   };
   store?: {
-    state?: (state: object) => object;
-    reducer?: (store: object, action: object) => object;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    state?: (state: { [key: string]: any }) => { [key: string]: any };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    reducer?: (store: { [key: string]: any }, action: { [key: string]: any }) => { [key: string]: any };
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  controllerListener?: (dispatch: Function, result: any) => void;
+  controllerListener?: (dispatch: (action: { [key: string]: any }) => void, result: any) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getWorkerContext?: () => any;
 }
