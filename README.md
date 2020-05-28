@@ -22,11 +22,10 @@ GA Framework
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Setup
-### yarn
-- `yarn setup`
-### npm
-- `npm run setup`
+## Install
+```shell script
+yarn add @technote-space/ga-framework
+```
 
 ## Author
 [GitHub (Technote)](https://github.com/technote-space)  
