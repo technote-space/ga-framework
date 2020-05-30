@@ -89,7 +89,6 @@ const App: FC<{
       },
     });
     dispatch({type: 'WORKER', worker});
-    worker.reset();
   }, []);
 
   return useMemo(() => (
