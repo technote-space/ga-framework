@@ -12,7 +12,6 @@ global['Process'] = class Process extends ProcessBase<any> {
 
     importScripts(context['path'] ?? 'algorithm.js');
     this.algorithm = new global[context['className'] ?? 'GeneticAlgorithm'](callback, context['data'] ?? undefined);
-    this.algorithm.reset().then();
   }
 
   public get isFinished(): boolean {
@@ -25,7 +24,10 @@ global['Process'] = class Process extends ProcessBase<any> {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public reset(context: any): Promise<void> {
-    this.algorithm = new global[context['className'] ?? 'GeneticAlgorithm'](this.callback, context['data'] ?? undefined);
+    if (context) {
+      this.algorithm = new global[context['className'] ?? 'GeneticAlgorithm'](this.callback, context['data'] ?? undefined);
+    }
+
     return this.algorithm.reset();
   }
 
