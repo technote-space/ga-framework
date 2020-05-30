@@ -1217,10 +1217,10 @@
   resolved "https://registry.yarnpkg.com/@technote-space/genetic-algorithms-js/-/genetic-algorithms-js-0.5.0.tgz#9d1e6f202cabd8b490995333a9b8d402e4b34a5b"
   integrity sha512-j9xsKnABVVLpkyVdNbR3KTG6zJbCFzuW8fDWa3Hmt4itiOvJURtFUQNpuC5PvVOR4aevZPD3BnOO2dsbzbfJow==
 
-"@technote-space/worker-controller@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@technote-space/worker-controller/-/worker-controller-0.2.2.tgz#129f20e8da8c2380ecacc1ab41c37fbbdb88a7f6"
-  integrity sha512-JXPiVJnaykd08xukqj5UL1Qcd3Rg50RRagFvQwAnVgYKkntTzYMI5xN23uQm4FHMieOqDMT7T510ECJ+MLILiQ==
+"@technote-space/worker-controller@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@technote-space/worker-controller/-/worker-controller-0.3.0.tgz#b3b2d91c0b57b1c8279d2846de394d744d651137"
+  integrity sha512-IR0YC42cz8od/7ACTJiAFUbTMlA7fKLUsaEygFGQs9AU8pYBE6REzkTmWCFeRdBvd/XGfv+DbW3v36+39Y8BnQ==
 
 "@types/anymatch@*":
   version "1.3.1"
