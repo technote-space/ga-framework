@@ -26,5 +26,5 @@ export type AppOptions = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   controllerListener?: (dispatch: (action: { [key: string]: any }) => void, result: any) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getWorkerContext?: () => any;
+  getWorkerContext?: (store: any) => any;
 }

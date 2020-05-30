@@ -23,6 +23,7 @@ import {
 import {useDispatchContext, useStoreContext} from './Store';
 import {AppOptions} from '../types';
 import {Controller, StatusResult} from '@technote-space/worker-controller';
+import {getProcessContext} from './common';
 
 const useStyles = makeStyles(() => createStyles({
   content: {
@@ -69,11 +70,11 @@ const Content        = getContent(styled);
 const App: FC<{
   options: AppOptions;
 }> = ({options}: { options: AppOptions }) => {
-  const {store: {themeColor}} = useStoreContext();
-  const {dispatch}            = useDispatchContext();
-  const themeObject           = useTheme(themeColor);
-  const theme                 = responsiveFontSizes(createMuiTheme(themeObject));
-  const classes               = useStyles({theme});
+  const {store: {themeColor}, store} = useStoreContext();
+  const {dispatch}                   = useDispatchContext();
+  const themeObject                  = useTheme(themeColor);
+  const theme                        = responsiveFontSizes(createMuiTheme(themeObject));
+  const classes                      = useStyles({theme});
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -84,9 +85,7 @@ const App: FC<{
         options.controllerListener(dispatch, result);
       }
     }, {
-      context: {
-        data: options?.getWorkerContext ? options?.getWorkerContext() : undefined,
-      },
+      context: getProcessContext(options, store),
     });
     dispatch({type: 'WORKER', worker});
   }, []);

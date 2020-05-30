@@ -4,10 +4,10 @@ import {IGeneticAlgorithm} from '../Algorithm';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 global['Process'] = class Process extends ProcessBase<any> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private readonly algorithm: IGeneticAlgorithm<any>;
+  private algorithm: IGeneticAlgorithm<any>;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public constructor(callback: () => Promise<void>, context: any) {
+  public constructor(private callback: () => Promise<void>, context: any) {
     super();
 
     importScripts(context['path'] ?? 'algorithm.js');
@@ -23,7 +23,9 @@ global['Process'] = class Process extends ProcessBase<any> {
     return this.algorithm.progress;
   }
 
-  public reset(): Promise<void> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public reset(context: any): Promise<void> {
+    this.algorithm = new global[context['className'] ?? 'GeneticAlgorithm'](this.callback, context['data'] ?? undefined);
     return this.algorithm.reset();
   }
 
