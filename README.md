@@ -14,9 +14,7 @@ GA Framework
 <details>
 <summary>Details</summary>
 
-- [Setup](#setup)
-  - [yarn](#yarn)
-  - [npm](#npm)
+- [Install](#install)
 - [Author](#author)
 
 </details>
