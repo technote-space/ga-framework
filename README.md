@@ -15,6 +15,8 @@ GA Framework
 <summary>Details</summary>
 
 - [Install](#install)
+- [Samples](#samples)
+  - [Automatic programming](#automatic-programming)
 - [Author](#author)
 
 </details>
