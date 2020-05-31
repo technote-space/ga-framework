@@ -25,6 +25,10 @@ GA Framework
 yarn add @technote-space/ga-framework
 ```
 
+## Samples
+### Automatic programming
+[demo](https://technote-space.github.io/ga-framework/samples/automatic-programming/index.html)
+
 ## Author
 [GitHub (Technote)](https://github.com/technote-space)  
 [Blog](https://technote.space)
