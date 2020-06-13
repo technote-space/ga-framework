@@ -1176,10 +1176,10 @@
     prop-types "^15.7.2"
     react-is "^16.8.0"
 
-"@mui-treasury/layout@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@mui-treasury/layout/-/layout-4.3.0.tgz#15fd1ddce5339ce21b14f5e165769e7d01872261"
-  integrity sha512-uOPSgFgZw17n7/pPWKQJjwPs//vQDDjZEB5zvfEK5Ods7qaN/szHaqv/NapM1oYCdms4/Juj1KtPOhmUkxyFhw==
+"@mui-treasury/layout@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@mui-treasury/layout/-/layout-4.4.0.tgz#4da60c0530dc97cf685238f9537acbedcf2b340c"
+  integrity sha512-+SydC7psxVSbOirCGp4PGpSt4iBaREomvR6XIFYKuFuxNXSr8/4Ni/Tq3N//cSbxDAP2UcsEYnFaT/zkl8bXvw==
   dependencies:
     debounce "^1.2.0"
     deepmerge "^4.2.2"
@@ -1217,10 +1217,10 @@
   resolved "https://registry.yarnpkg.com/@technote-space/genetic-algorithms-js/-/genetic-algorithms-js-0.5.2.tgz#59dfb9958c2f767032bf07ff64c54f044643b3b7"
   integrity sha512-C1VOPuEZeOmkdPNwjg7vqJqF0deD06D27FufrP8qr0fzSFxJenoQmpuVfwYJc0jbgrTXpLGE0ZV6RH6ymEj/Mw==
 
-"@technote-space/worker-controller@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@technote-space/worker-controller/-/worker-controller-0.3.3.tgz#2a3a5706bafb918634c432300780900e82f8344c"
-  integrity sha512-IhADGu/RhRS6wh7tOE35BMQ+PVuNnJtFe6MutY43zWPEM6amJnGoFsVg3HvLPq/9/Bb5RprAfO53k6iASfpOCg==
+"@technote-space/worker-controller@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@technote-space/worker-controller/-/worker-controller-0.4.1.tgz#61385c354ab0dce51d5808c5cfd270fbd00b0b50"
+  integrity sha512-i+FU2xOuKtIPTDtn6Pz4zyhRijltsQYkvmtciFYxyznvrOGHVghZXnWmpo3mORaa7qOEJYcLCrn5uVaL3TOP9Q==
 
 "@types/anymatch@*":
   version "1.3.1"
