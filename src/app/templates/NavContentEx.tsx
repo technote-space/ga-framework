@@ -1,4 +1,4 @@
-import React, {FC, useMemo} from 'react';
+import React, {FC, useMemo, useState, useEffect} from 'react';
 import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
 import {grey, orange} from '@material-ui/core/colors';
 import {
@@ -50,6 +50,7 @@ const NavContentEx: FC<{
   const {dispatch}                             = useDispatchContext();
   const classes                                = useStyles();
   const {setOpen}                              = useSidebar('primarySidebar');
+  const [controller, setController]            = useState<JSX.Element | null>(null);
 
   const switchPerspective = next => (): void => {
     if (next !== page) {
@@ -59,7 +60,7 @@ const NavContentEx: FC<{
     setOpen('primarySidebar', false);
   };
 
-  const menu       = useMemo(() => <List>
+  const menu = useMemo(() => <List>
     {Object.keys(options.pages).map(page => ({
       page,
       text: options.pages[page].text,
@@ -74,19 +75,32 @@ const NavContentEx: FC<{
       </ListItem>,
     )}
   </List>, [classes, page]);
-  const controller = useMemo(() => !worker ? null : <div className={classes.wrap}>
-    <div className={classes.wrapButtons}>
-      <Button className={classes.button} onClick={(): void => worker.reset(getProcessContext(options, store))} disabled={status !== 'initialized' && status !== 'finished' && status !== 'canceled'}>
-        Reset
-      </Button>
-      <Button className={classes.button} onClick={(): void => worker.start()} disabled={status !== 'initialized' && status !== 'canceled'}>
-        Start
-      </Button>
-      <Button className={classes.button} onClick={(): void => worker.stop()} disabled={status !== 'started'}>
-        Stop
-      </Button>
-    </div>
-  </div>, [worker, status, classes]);
+
+  useEffect(() => {
+    (async(): Promise<void> => {
+      if (worker) {
+        setController(<div className={classes.wrap}>
+          <div className={classes.wrapButtons}>
+            <Button
+              className={classes.button}
+              onClick={async(): Promise<void> => worker.reset(await getProcessContext(options, store))}
+              disabled={status !== 'initialized' && status !== 'finished' && status !== 'canceled'}
+            >
+              Reset
+            </Button>
+            <Button className={classes.button} onClick={(): void => worker.start()} disabled={status !== 'initialized' && status !== 'canceled'}>
+              Start
+            </Button>
+            <Button className={classes.button} onClick={(): void => worker.stop()} disabled={status !== 'started'}>
+              Stop
+            </Button>
+          </div>
+        </div>);
+      } else {
+        setController(null);
+      }
+    })().then();
+  }, [worker, status, classes]);
 
   return <>
     {options.parts?.beforeMenu ? options.parts.beforeMenu() : null}

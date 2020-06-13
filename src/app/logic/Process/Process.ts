@@ -14,6 +14,11 @@ global['Process'] = class Process extends ProcessBase<any> {
     this.algorithm = new global[context['className'] ?? 'GeneticAlgorithm'](callback, context['data'] ?? undefined);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public async init(context: any): Promise<void> {
+    await this.algorithm.init(context);
+  }
+
   public get isFinished(): boolean {
     return this.algorithm.hasReached;
   }
