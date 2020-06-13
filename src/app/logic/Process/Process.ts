@@ -28,9 +28,10 @@ global['Process'] = class Process extends ProcessBase<any> {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public reset(context: any): Promise<void> {
+  public async reset(context: any): Promise<void> {
     if (context) {
       this.algorithm = new global[context['className'] ?? 'GeneticAlgorithm'](this.callback, context['data'] ?? undefined);
+      await this.init(context);
     }
 
     return this.algorithm.reset();
