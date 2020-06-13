@@ -1212,10 +1212,10 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@technote-space/genetic-algorithms-js@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@technote-space/genetic-algorithms-js/-/genetic-algorithms-js-0.5.3.tgz#d5c1eae481b9f3806becea2317104b1f419a3a13"
-  integrity sha512-5Rv4gT6sb7xKy0GLKtpKdVuhHWxOG0KMmyXC9EMQe8dKqngiTGcjsZjI7yWGlpkznBD5eGvWccTyqaP4e04fqw==
+"@technote-space/genetic-algorithms-js@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@technote-space/genetic-algorithms-js/-/genetic-algorithms-js-0.5.4.tgz#9a4db83f5d5d4675039c7975c4c17b6ae7ac8be8"
+  integrity sha512-yLhaO2bDpek0i6U5onnHGXbpuAyaHsfmjKMof0NQv+TEb7lkg/uMMBDXKkzLNfUTizCY3On6HoMQedu+5v04KQ==
 
 "@technote-space/worker-controller@^0.4.1":
   version "0.4.1"
