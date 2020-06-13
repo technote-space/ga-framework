@@ -16,7 +16,7 @@ global['Process'] = class Process extends ProcessBase<any> {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public async init(context: any): Promise<void> {
-    await this.algorithm.init(context);
+    await this.algorithm.init(context['data'] ?? undefined);
   }
 
   public get isFinished(): boolean {
