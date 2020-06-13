@@ -77,17 +77,19 @@ const App: FC<{
   const classes                      = useStyles({theme});
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const worker = new Controller((result: any | StatusResult) => {
-      if ('status' in result) {
-        dispatch({type: 'UPDATE_STATUS', result});
-      } else if (options.controllerListener) {
-        options.controllerListener(dispatch, result);
-      }
-    }, {
-      context: getProcessContext(options, store),
-    });
-    dispatch({type: 'WORKER', worker});
+    (async() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const worker = new Controller((result: any | StatusResult) => {
+        if ('status' in result) {
+          dispatch({type: 'UPDATE_STATUS', result});
+        } else if (options.controllerListener) {
+          options.controllerListener(dispatch, result);
+        }
+      }, {
+        context: await getProcessContext(options, store),
+      });
+      dispatch({type: 'WORKER', worker});
+    })().then();
   }, []);
 
   return useMemo(() => (
