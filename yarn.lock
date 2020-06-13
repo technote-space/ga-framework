@@ -1212,10 +1212,10 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@technote-space/genetic-algorithms-js@^0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@technote-space/genetic-algorithms-js/-/genetic-algorithms-js-0.5.2.tgz#59dfb9958c2f767032bf07ff64c54f044643b3b7"
-  integrity sha512-C1VOPuEZeOmkdPNwjg7vqJqF0deD06D27FufrP8qr0fzSFxJenoQmpuVfwYJc0jbgrTXpLGE0ZV6RH6ymEj/Mw==
+"@technote-space/genetic-algorithms-js@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@technote-space/genetic-algorithms-js/-/genetic-algorithms-js-0.5.3.tgz#d5c1eae481b9f3806becea2317104b1f419a3a13"
+  integrity sha512-5Rv4gT6sb7xKy0GLKtpKdVuhHWxOG0KMmyXC9EMQe8dKqngiTGcjsZjI7yWGlpkznBD5eGvWccTyqaP4e04fqw==
 
 "@technote-space/worker-controller@^0.4.1":
   version "0.4.1"
@@ -6610,10 +6610,10 @@ vis-network@^7.6.10:
   resolved "https://registry.yarnpkg.com/vis-network/-/vis-network-7.6.10.tgz#85fe40b0dfca17c9ff886f6ac98a7b1f182a62bd"
   integrity sha512-wL1dHBWWpzxvUaM0miccDuSLQ2tkw93jCA3j4Zizh4ruph+UXnjkouayaOyJIx43wULUSoKGWkhE6na1q208TA==
 
-vis-util@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/vis-util/-/vis-util-4.1.0.tgz#f7fa9ceb3965dc3a8c2a97083910ab804da25945"
-  integrity sha512-Y1/8tlgUPd5zY+EdhfR6dL+tpzxVndHbgrj5htqz7B2HxfE8tupjW/TUTkXDmhW/jj0nb0RaghXIaUu3sNn2mg==
+vis-util@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/vis-util/-/vis-util-4.2.0.tgz#b53e243a4c05dbf1a95be2a0a175ccab69076ed3"
+  integrity sha512-8cE7FKiLCuu+khzDzHhszpAJQR0DP8k9+cIqXKiI86hK4vmilUQEp4vflyGYJp3YvSrsBwUSFgDvtezjO/IYFQ==
 
 vm-browserify@^1.0.1:
   version "1.1.2"
