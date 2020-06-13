@@ -77,7 +77,7 @@ const App: FC<{
   const classes                      = useStyles({theme});
 
   useEffect(() => {
-    (async() => {
+    (async(): Promise<void> => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const worker = new Controller((result: any | StatusResult) => {
         if ('status' in result) {

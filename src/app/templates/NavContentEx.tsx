@@ -77,7 +77,7 @@ const NavContentEx: FC<{
   </List>, [classes, page]);
 
   useEffect(() => {
-    (async() => {
+    (async(): Promise<void> => {
       if (worker) {
         setController(<div className={classes.wrap}>
           <div className={classes.wrapButtons}>
