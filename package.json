@@ -1,6 +1,6 @@
 {
   "name": "@technote-space/ga-framework",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "GA Framework",
   "author": {
     "name": "Technote",
@@ -32,7 +32,7 @@
   "dependencies": {
     "@egjs/hammerjs": "^2.0.17",
     "@material-ui/core": "^4.10.2",
-    "@mui-treasury/layout": "^4.4.0",
+    "@mui-treasury/layout": "^4.4.1",
     "@technote-space/genetic-algorithms-js": "^0.5.4",
     "@technote-space/worker-controller": "^0.4.1",
     "clsx": "^1.1.1",
