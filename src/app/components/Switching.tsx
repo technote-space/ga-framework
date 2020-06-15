@@ -1,11 +1,12 @@
-import {useState, useMemo, useEffect, ReactElement, FC} from 'react';
+import React, {useState, useMemo, useEffect, ReactElement, FC} from 'react';
 import {useStoreContext} from '../Store';
+import {LoadingAnimation} from '../components';
 import {AppOptions} from '../../types';
 
 const Switching: FC<{
   options: AppOptions;
 }> = ({options}) => {
-  const {store: {page}}             = useStoreContext();
+  const {store: {page, status}}     = useStoreContext();
   const [nextPage, setNextPage]     = useState<ReactElement | null>(null);
   const [components, setComponents] = useState({});
 
@@ -23,7 +24,10 @@ const Switching: FC<{
     }
   }, [page]);
 
-  return useMemo(() => nextPage, [nextPage]);
+  const loadingView = useMemo(() => <LoadingAnimation/>, []);
+  const pageView    = useMemo(() => nextPage, [nextPage]);
+
+  return status === 'none' || status === 'canceling' ? loadingView : pageView;
 };
 
 export default Switching;
