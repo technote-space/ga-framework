@@ -1,5 +1,6 @@
 import React, {useReducer, createContext, useContext, useCallback, useMemo, useEffect, FC} from 'react';
 import {AppOptions} from '../types';
+import {getProcessContext} from './common';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getReducer = (options: AppOptions) => (store, action): any => {
@@ -30,7 +31,6 @@ const DispatchContext           = createContext({});
 export const useDispatchContext = (): any => useContext(DispatchContext);
 
 export const StoreContextProvider: FC<{
-  children;
   options: AppOptions;
 }> = ({children, options}) => {
   const initialState      = {
@@ -38,6 +38,11 @@ export const StoreContextProvider: FC<{
     themeColor: 'dark',
     status: 'none',
     worker: null,
+    control: {
+      reset: store => async(): Promise<void> => store.worker?.reset(await getProcessContext(options, store)),
+      start: store => (): void => store.worker?.start(),
+      stop: store => (): void => store.worker?.stop(),
+    },
   };
   const [store, dispatch] = useReducer(getReducer(options), options.store?.state ? options.store.state(initialState) : initialState);
 

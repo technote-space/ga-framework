@@ -13,7 +13,6 @@ import {useSidebar} from '@mui-treasury/layout/hooks';
 import clsx from 'clsx';
 import {useStoreContext, useDispatchContext} from '../Store';
 import {AppOptions} from '../../types';
-import {getProcessContext} from '../common';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   list: {
@@ -46,11 +45,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const NavContentEx: FC<{
   options: AppOptions;
 }> = ({options}) => {
-  const {store: {page, status, worker}, store} = useStoreContext();
-  const {dispatch}                             = useDispatchContext();
-  const classes                                = useStyles();
-  const {setOpen}                              = useSidebar('primarySidebar');
-  const [controller, setController]            = useState<JSX.Element | null>(null);
+  const {store: {page, status, worker, control}, store} = useStoreContext();
+  const {dispatch}                                      = useDispatchContext();
+  const classes                                         = useStyles();
+  const {setOpen}                                       = useSidebar('primarySidebar');
+  const [controller, setController]                     = useState<JSX.Element | null>(null);
 
   const switchPerspective = next => (): void => {
     if (next !== page) {
@@ -83,15 +82,15 @@ const NavContentEx: FC<{
           <div className={classes.wrapButtons}>
             <Button
               className={classes.button}
-              onClick={async(): Promise<void> => worker.reset(await getProcessContext(options, store))}
+              onClick={control.reset(store)}
               disabled={status !== 'initialized' && status !== 'finished' && status !== 'canceled'}
             >
               Reset
             </Button>
-            <Button className={classes.button} onClick={(): void => worker.start()} disabled={status !== 'initialized' && status !== 'canceled'}>
+            <Button className={classes.button} onClick={control.start(store)} disabled={status !== 'initialized' && status !== 'canceled'}>
               Start
             </Button>
-            <Button className={classes.button} onClick={(): void => worker.stop()} disabled={status !== 'started'}>
+            <Button className={classes.button} onClick={control.stop(store)} disabled={status !== 'started'}>
               Stop
             </Button>
           </div>
