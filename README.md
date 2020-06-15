@@ -17,6 +17,7 @@ GA Framework
 - [Install](#install)
 - [Samples](#samples)
   - [Automatic programming](#automatic-programming)
+  - [Figure ground](#figure-ground)
 - [Author](#author)
 
 </details>
