@@ -40,8 +40,8 @@ export const StoreContextProvider: FC<{
     worker: null,
     control: {
       reset: store => async(): Promise<void> => store.worker?.reset(await getProcessContext(options, store)),
-      start: store => () => store.worker?.start(),
-      stop: store => () => store.worker?.stop(),
+      start: store => (): void => store.worker?.start(),
+      stop: store => (): void => store.worker?.stop(),
     },
   };
   const [store, dispatch] = useReducer(getReducer(options), options.store?.state ? options.store.state(initialState) : initialState);
