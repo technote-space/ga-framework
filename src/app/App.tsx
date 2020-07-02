@@ -82,8 +82,8 @@ const App: FC<{
       const worker = new Controller((result: any | StatusResult) => {
         if ('status' in result) {
           dispatch({type: 'UPDATE_STATUS', result});
-        } else if (options.controllerListener) {
-          options.controllerListener(dispatch, result);
+        } else {
+          dispatch({type: 'RESULT', result});
         }
       }, {
         context: await getProcessContext(options, store),
