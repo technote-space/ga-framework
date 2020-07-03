@@ -30,10 +30,9 @@ const DispatchContext           = createContext({});
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useDispatchContext = (): any => useContext(DispatchContext);
 
-export const StoreContextProvider: FC<{
-  options: AppOptions;
-}> = ({children, options}) => {
-  const initialState      = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getInitialState = (options: AppOptions): { [key: string]: any } => {
+  const initialState = {
     page: options.firstPage ?? Object.keys(options.pages)[0],
     themeColor: 'dark',
     status: 'none',
@@ -44,7 +43,13 @@ export const StoreContextProvider: FC<{
       stop: store => (): void => store.worker?.stop(),
     },
   };
-  const [store, dispatch] = useReducer(getReducer(options), options.store?.state ? options.store.state(initialState) : initialState);
+  return options.store?.state ? options.store.state(initialState) : initialState;
+};
+
+export const StoreContextProvider: FC<{
+  options: AppOptions;
+}> = ({children, options}) => {
+  const [store, dispatch] = useReducer(getReducer(options), getInitialState(options));
 
   const onReloadNeeded = useCallback(async() => {
     //
