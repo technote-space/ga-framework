@@ -23,7 +23,7 @@ import {
 import {useDispatchContext, useStoreContext} from './Store';
 import {AppOptions} from '../types';
 import {Controller, StatusResult} from '@technote-space/worker-controller';
-import {getProcessContext} from './common';
+import {getProcessContext, updateStatus} from './common';
 
 const useStyles = makeStyles(() => createStyles({
   content: {
@@ -70,18 +70,18 @@ const Content        = getContent(styled);
 const App: FC<{
   options: AppOptions;
 }> = ({options}: { options: AppOptions }) => {
-  const {store: {themeColor}, store} = useStoreContext();
-  const {dispatch}                   = useDispatchContext();
-  const themeObject                  = useTheme(themeColor);
-  const theme                        = responsiveFontSizes(createMuiTheme(themeObject));
-  const classes                      = useStyles({theme});
+  const {store: {themeColor, reloadWorker}, store} = useStoreContext();
+  const {dispatch}                                 = useDispatchContext();
+  const themeObject                                = useTheme(themeColor);
+  const theme                                      = responsiveFontSizes(createMuiTheme(themeObject));
+  const classes                                    = useStyles({theme});
 
   useEffect(() => {
     (async(): Promise<void> => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const worker = new Controller((result: any | StatusResult) => {
         if ('status' in result) {
-          dispatch({type: 'UPDATE_STATUS', result});
+          updateStatus(result.status, dispatch);
         } else {
           dispatch({type: 'RESULT', result});
         }
@@ -89,8 +89,9 @@ const App: FC<{
         context: await getProcessContext(options, store),
       });
       dispatch({type: 'WORKER', worker});
+      dispatch({type: 'INITIALIZED'});
     })().then();
-  }, []);
+  }, [reloadWorker]);
 
   return useMemo(() => (
     <Root scheme={scheme} theme={theme}>

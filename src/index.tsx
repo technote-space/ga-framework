@@ -14,4 +14,5 @@ export {AppOptions};
 export {IGeneticAlgorithm, GeneticAlgorithmBase} from './app/logic/Algorithm';
 export {useStoreContext, useDispatchContext} from './app/Store';
 export {Graph} from './app/components';
+export {getProcessContext, updateStatus, reloadWorker} from './app/common';
 export {useTheme};
