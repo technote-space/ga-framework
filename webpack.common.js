@@ -3,7 +3,7 @@ const path              = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
 const NODE_ENV          = process.env.NODE_ENV;
-const PROJECT_ROOT      = path.resolve(__dirname, '../../..'); // node_modules/@technote-space/ga-framework
+const PROJECT_ROOT      = path.resolve(__dirname, '../../..');
 const OUTPUT_DIR        = path.resolve(PROJECT_ROOT, 'build');
 
 module.exports = {
