@@ -89,6 +89,7 @@ const App: FC<{
         context: await getProcessContext(options, store),
       });
       dispatch({type: 'WORKER', worker});
+      dispatch({type: 'INITIALIZED'});
     })().then();
   }, []);
 
