@@ -19,12 +19,6 @@ module.exports = {
     '@babel/plugin-transform-react-inline-elements',
     'react-html-attrs',
     'transform-class-properties',
-    [
-      'i18next-extract', {
-        locales: ['ja', 'en'],
-        outputPath: './src/locales/{{locale}}.json',
-      },
-    ],
   ],
-  ignore: ['node_modules', 'build', 'distDev', 'distProd'],
+  ignore: ['node_modules', 'dist'],
 };
