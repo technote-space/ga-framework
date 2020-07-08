@@ -70,18 +70,20 @@ const Content        = getContent(styled);
 const App: FC<{
   options: AppOptions;
 }> = ({options}: { options: AppOptions }) => {
-  const {store: {themeColor, reloadWorker}, store} = useStoreContext();
-  const {dispatch}                                 = useDispatchContext();
-  const themeObject                                = useTheme(themeColor);
-  const theme                                      = responsiveFontSizes(createMuiTheme(themeObject));
-  const classes                                    = useStyles({theme});
+  const {store: {status, themeColor, reloadWorker}, store} = useStoreContext();
+  const {dispatch}                                         = useDispatchContext();
+  const themeObject                                        = useTheme(themeColor);
+  const theme                                              = responsiveFontSizes(createMuiTheme(themeObject));
+  const classes                                            = useStyles({theme});
 
   useEffect(() => {
     (async(): Promise<void> => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const worker = new Controller((result: any | StatusResult) => {
         if ('status' in result) {
-          updateStatus(result.status, dispatch);
+          if (status !== 'disabled') {
+            updateStatus(result.status, dispatch);
+          }
         } else {
           dispatch({type: 'RESULT', result});
         }
