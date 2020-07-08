@@ -83,14 +83,14 @@ const NavContentEx: FC<{
             <Button
               className={classes.button}
               onClick={control.reset(store)}
-              disabled={status !== 'initialized' && status !== 'finished' && status !== 'canceled'}
+              disabled={status === 'disabled' || (status !== 'initialized' && status !== 'finished' && status !== 'canceled')}
             >
               Reset
             </Button>
-            <Button className={classes.button} onClick={control.start(store)} disabled={status !== 'initialized' && status !== 'canceled'}>
+            <Button className={classes.button} onClick={control.start(store)} disabled={status === 'disabled' || (status !== 'initialized' && status !== 'canceled')}>
               Start
             </Button>
-            <Button className={classes.button} onClick={control.stop(store)} disabled={status !== 'started'}>
+            <Button className={classes.button} onClick={control.stop(store)} disabled={status === 'disabled' || status !== 'started'}>
               Stop
             </Button>
           </div>
