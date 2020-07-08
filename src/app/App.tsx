@@ -70,11 +70,11 @@ const Content        = getContent(styled);
 const App: FC<{
   options: AppOptions;
 }> = ({options}: { options: AppOptions }) => {
-  const {store: {themeColor}, store} = useStoreContext();
-  const {dispatch}                   = useDispatchContext();
-  const themeObject                  = useTheme(themeColor);
-  const theme                        = responsiveFontSizes(createMuiTheme(themeObject));
-  const classes                      = useStyles({theme});
+  const {store: {themeColor, reloadWorker}, store} = useStoreContext();
+  const {dispatch}                                 = useDispatchContext();
+  const themeObject                                = useTheme(themeColor);
+  const theme                                      = responsiveFontSizes(createMuiTheme(themeObject));
+  const classes                                    = useStyles({theme});
 
   useEffect(() => {
     (async(): Promise<void> => {
@@ -91,7 +91,7 @@ const App: FC<{
       dispatch({type: 'WORKER', worker});
       dispatch({type: 'INITIALIZED'});
     })().then();
-  }, []);
+  }, [reloadWorker]);
 
   return useMemo(() => (
     <Root scheme={scheme} theme={theme}>

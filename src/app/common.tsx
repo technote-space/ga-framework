@@ -7,3 +7,6 @@ export const getProcessContext = async(options: AppOptions, store: any): Promise
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const updateStatus = (status: string, dispatch: (value: any) => void): void => dispatch({type: 'UPDATE_STATUS', result: {status}});
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const reloadWorker = (dispatch: (value: any) => void): void => dispatch({type: 'RELOAD_WORKER'});

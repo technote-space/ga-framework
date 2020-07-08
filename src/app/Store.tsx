@@ -13,6 +13,8 @@ const getReducer = (options: AppOptions) => (store, action): any => {
       return {...store, worker: action.worker};
     case 'UPDATE_STATUS':
       return {...store, status: action.result.status};
+    case 'RELOAD_WORKER':
+      return {...store, reloadWorker: !store.reloadWorker};
     default:
       if (options.store?.reducer) {
         return options.store.reducer(store, action);
@@ -36,6 +38,7 @@ export const getInitialState = (options: AppOptions): { [key: string]: any } => 
     page: options.firstPage ?? Object.keys(options.pages)[0],
     themeColor: 'dark',
     status: 'none',
+    reloadWorker: false,
     worker: null,
     control: {
       reset: store => async(): Promise<void> => store.worker?.reset(await getProcessContext(options, store)),
