@@ -78,6 +78,7 @@ const App: FC<{
 
   useEffect(() => {
     (async(): Promise<void> => {
+      dispatch({type: 'INITIALIZE'});
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const worker = new Controller((result: any | StatusResult) => {
         if ('status' in result) {
