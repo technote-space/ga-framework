@@ -23,7 +23,7 @@ import {
 import {useDispatchContext, useStoreContext} from './Store';
 import {AppOptions} from '../types';
 import {Controller, StatusResult} from '@technote-space/worker-controller';
-import {getProcessContext} from './common';
+import {getProcessContext, updateStatus} from './common';
 
 const useStyles = makeStyles(() => createStyles({
   content: {
@@ -81,7 +81,7 @@ const App: FC<{
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const worker = new Controller((result: any | StatusResult) => {
         if ('status' in result) {
-          dispatch({type: 'UPDATE_STATUS', result});
+          updateStatus(result.status, dispatch);
         } else {
           dispatch({type: 'RESULT', result});
         }
