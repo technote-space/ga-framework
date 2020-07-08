@@ -12,6 +12,10 @@ const getReducer = (options: AppOptions) => (store, action): any => {
     case 'WORKER':
       return {...store, worker: action.worker};
     case 'UPDATE_STATUS':
+      if (store.status === 'disabled') {
+        return store;
+      }
+
       return {...store, status: action.result.status};
     case 'RELOAD_WORKER':
       return {...store, reloadWorker: !store.reloadWorker};

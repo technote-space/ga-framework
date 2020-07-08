@@ -82,9 +82,7 @@ const App: FC<{
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const worker = new Controller((result: any | StatusResult) => {
         if ('status' in result) {
-          if (status !== 'disabled') {
-            updateStatus(result.status, dispatch);
-          }
+          updateStatus(result.status, dispatch);
         } else {
           dispatch({type: 'RESULT', result});
         }
