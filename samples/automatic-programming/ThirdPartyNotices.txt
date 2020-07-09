@@ -312,7 +312,7 @@ SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/ga-framework v0.4.5 - Technote
+@technote-space/ga-framework v0.5.4 - Technote
 https://github.com/technote-space/ga-framework.git
 --------------------------------------------------------------------------------
 
@@ -340,7 +340,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/genetic-algorithms-js v0.5.7 - Technote
+@technote-space/genetic-algorithms-js v0.5.8 - Technote
 https://github.com/technote-space/genetic-algorithms-js.git
 --------------------------------------------------------------------------------
 
@@ -368,7 +368,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/worker-controller v0.4.3 - Technote
+@technote-space/worker-controller v0.4.4 - Technote
 https://github.com/technote-space/worker-controller.git
 --------------------------------------------------------------------------------
 
@@ -1722,7 +1722,7 @@ END OF TERMS AND CONDITIONS
 
 
 --------------------------------------------------------------------------------
-vis-network v7.8.0
+vis-network v7.9.0
 https://github.com/visjs/vis-network.git
 --------------------------------------------------------------------------------
 
