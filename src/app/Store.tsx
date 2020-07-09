@@ -2,37 +2,11 @@ import React, {useReducer, createContext, useContext, useCallback, useMemo, useE
 import {AppOptions} from '../types';
 import {getProcessContext} from './common';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getReducer = (options: AppOptions) => (store, action): any => {
-  switch (action.type) {
-    case 'PAGE':
-      return {...store, page: action.page};
-    case 'THEME_COLOR':
-      return {...store, themeColor: action.themeColor};
-    case 'WORKER':
-      return {...store, worker: action.worker};
-    case 'UPDATE_STATUS':
-      if (store.status === 'disabled') {
-        return store;
-      }
-
-      return {...store, status: action.result.status};
-    case 'RELOAD_WORKER':
-      return {...store, reloadWorker: !store.reloadWorker};
-    default:
-      if (options.store?.reducer) {
-        return options.store.reducer(store, action);
-      }
-
-      return store;
-  }
-};
-
-const StoreContext           = createContext({});
+const StoreContext = createContext({});
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useStoreContext = (): any => useContext(StoreContext);
 
-const DispatchContext           = createContext({});
+const DispatchContext = createContext({});
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useDispatchContext = (): any => useContext(DispatchContext);
 
@@ -56,7 +30,32 @@ export const getInitialState = (options: AppOptions): { [key: string]: any } => 
 export const StoreContextProvider: FC<{
   options: AppOptions;
 }> = ({children, options}) => {
-  const [store, dispatch] = useReducer(getReducer(options), getInitialState(options));
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getReducer = useCallback((store, action): any => {
+    switch (action.type) {
+      case 'PAGE':
+        return {...store, page: action.page};
+      case 'THEME_COLOR':
+        return {...store, themeColor: action.themeColor};
+      case 'WORKER':
+        return {...store, worker: action.worker};
+      case 'UPDATE_STATUS':
+        if (store.status === 'disabled') {
+          return store;
+        }
+
+        return {...store, status: action.result.status};
+      case 'RELOAD_WORKER':
+        return {...store, reloadWorker: !store.reloadWorker};
+      default:
+        if (options.store?.reducer) {
+          return options.store.reducer(store, action);
+        }
+
+        return store;
+    }
+  }, [options]);
+  const [store, dispatch] = useReducer(getReducer, getInitialState(options));
 
   const onReloadNeeded = useCallback(async() => {
     //
