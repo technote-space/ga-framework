@@ -25,4 +25,8 @@ export type AppOptions = {
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getWorkerContext?: (store: any) => any;
+  process?: {
+    sleep?: number;
+    minimumStep?: number;
+  }
 }

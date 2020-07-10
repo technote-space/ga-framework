@@ -1208,10 +1208,10 @@
   resolved "https://registry.yarnpkg.com/@technote-space/genetic-algorithms-js/-/genetic-algorithms-js-0.5.8.tgz#70a7ec01643409dc6d26de5f5d26affa07f7b56d"
   integrity sha512-BLClqm0BwMMVd1BIGhuVnIhjFA/xynmQguwop6sd7FpgJcoRQ2YfEeFROi2IwOxP7Y8iXqBI0EnxIcSS6fs8Bg==
 
-"@technote-space/worker-controller@^0.4.4":
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/@technote-space/worker-controller/-/worker-controller-0.4.4.tgz#93e8c48d056eb7c42598df13784d0475a42d8017"
-  integrity sha512-wcZp++jpfy8KDsPJFh5DiXrEb59x/XiZKOx3BZkQ5RsmzwxvDwr7vo+KilTPvtaj3YZ8sUZWbMJ4NeIKwK0Akg==
+"@technote-space/worker-controller@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@technote-space/worker-controller/-/worker-controller-0.5.0.tgz#70475feee756f6299059571a2bfb85bd8972c0bd"
+  integrity sha512-lCkXTCPSq7iMAKOspOLeWLib/4BjRbYPQ+7gaOFmQ88pb95aWJ1IpE2SjSewwT8q2en8v+ZLR/LdQ33HkoKSXA==
 
 "@types/anymatch@*":
   version "1.3.1"
@@ -2212,9 +2212,9 @@ camelize@^1.0.0:
   integrity sha1-FkpUg+Yw+kMh5a8HAg5TGDGyYJs=
 
 caniuse-lite@^1.0.30001093:
-  version "1.0.30001096"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001096.tgz#5a4541af5317dc21f91f5b24d453030a35f919c0"
-  integrity sha512-PFTw9UyVfbkcMEFs82q8XVlRayj7HKvnhu5BLcmjGpv+SNyiWasCcWXPGJuO0rK0dhLRDJmtZcJ+LHUfypbw1w==
+  version "1.0.30001097"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001097.tgz#1129c40c9f5ee3282158da08fd915d301f4a9bd8"
+  integrity sha512-TeuSleKt/vWXaPkLVFqGDnbweYfq4IaZ6rUugFf3rWY6dlII8StUZ8Ddin0PkADfgYZ4wRqCdO2ORl4Rn5eZIA==
 
 chalk@3.0.0, chalk@^3.0.0:
   version "3.0.0"
@@ -2880,9 +2880,9 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     stream-shift "^1.0.0"
 
 electron-to-chromium@^1.3.488:
-  version "1.3.494"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.494.tgz#0d2dba65b69d696c5b71abb37552ff055fb32a5c"
-  integrity sha512-EOZuaDT3L1sCIMAVN5J0nGuGWVq5dThrdl0d8XeDYf4MOzbXqZ19OLKesN8TZj0RxtpYjqHpiw/fR6BKWdMwYA==
+  version "1.3.496"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.496.tgz#3f43d32930481d82ad3663d79658e7c59a58af0b"
+  integrity sha512-TXY4mwoyowwi4Lsrq9vcTUYBThyc1b2hXaTZI13p8/FRhY2CTaq5lK+DVjhYkKiTLsKt569Xes+0J5JsVXFurQ==
 
 elliptic@^6.0.0, elliptic@^6.5.2:
   version "6.5.3"
@@ -4708,9 +4708,9 @@ natural-compare@^1.4.0:
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
 neo-async@^2.5.0, neo-async@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
-  integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
+  integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
 no-case@^3.0.3:
   version "3.0.3"
