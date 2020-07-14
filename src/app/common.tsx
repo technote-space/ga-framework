@@ -12,3 +12,6 @@ export const updateStatus = (status: string, dispatch: (value: any) => void): vo
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const reloadWorker = (dispatch: (value: any) => void): void => dispatch({type: 'RELOAD_WORKER'});
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getTitle = (options: AppOptions, store: { [key: string]: any }): string => typeof options.title === 'string' ? options.title : options.title(store);
