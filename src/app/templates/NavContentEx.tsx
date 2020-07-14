@@ -37,9 +37,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   button: {
     margin: 5,
   },
-  param: {
-    margin: 5,
-  },
 }));
 
 const NavContentEx: FC<{
