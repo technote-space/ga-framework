@@ -56,7 +56,7 @@ const NavContentEx: FC<{
     setOpen('primarySidebar', false);
   };
 
-  const menu = useMemo(() => <List>
+  const menu       = useMemo(() => <List>
     {Object.keys(options.pages).map(page => ({
       page,
       text: options.pages[page].text,
@@ -71,6 +71,8 @@ const NavContentEx: FC<{
       </ListItem>,
     )}
   </List>, [classes, page]);
+  const beforeMenu = useMemo(() => options.parts?.beforeMenu ? options.parts.beforeMenu() : null, []);
+  const afterMenu  = useMemo(() => options.parts?.afterMenu ? options.parts.afterMenu() : null, []);
 
   useEffect(() => {
     (async(): Promise<void> => {
@@ -99,10 +101,10 @@ const NavContentEx: FC<{
   }, [worker, status, classes]);
 
   return <>
-    {options.parts?.beforeMenu ? options.parts.beforeMenu() : null}
+    {beforeMenu}
     {menu}
     {controller}
-    {options.parts?.afterMenu ? options.parts.afterMenu() : null}
+    {afterMenu}
   </>;
 };
 
