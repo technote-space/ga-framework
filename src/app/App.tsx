@@ -1,4 +1,4 @@
-import React, {useMemo, FC, useEffect} from 'react';
+import React, {useMemo, useEffect, FC} from 'react';
 import {Helmet} from 'react-helmet';
 import styled from 'styled-components';
 import LayoutBuilder, {
@@ -23,7 +23,7 @@ import {
 import {useDispatchContext, useStoreContext} from './Store';
 import {AppOptions} from '../types';
 import {Controller, StatusResult} from '@technote-space/worker-controller';
-import {getProcessContext, updateStatus} from './common';
+import {getProcessContext, getTitle, updateStatus} from './common';
 
 const useStyles = makeStyles(() => createStyles({
   content: {
@@ -76,6 +76,23 @@ const App: FC<{
   const theme                                      = responsiveFontSizes(createMuiTheme(themeObject));
   const classes                                    = useStyles({theme});
 
+  const title       = useMemo(() => getTitle(options, store), [store, options.title]);
+  const cssBaseline = useMemo(() => <CssBaseline/>, []);
+  const header      = useMemo(() => <Header>
+    <Toolbar>
+      <SidebarTrigger sidebarId="primarySidebar"/>
+      <HeaderEx options={options}/>
+    </Toolbar>
+  </Header>, []);
+  const sidebar     = useMemo(() => <DrawerSidebar sidebarId="primarySidebar">
+    <SidebarContent>
+      <NavContentEx options={options}/>
+    </SidebarContent>
+  </DrawerSidebar>, []);
+  const content     = useMemo(() => <Content className={classes.content}>
+    <ContentEx options={options}/>
+  </Content>, [classes]);
+
   useEffect(() => {
     (async(): Promise<void> => {
       dispatch({type: 'INITIALIZE'});
@@ -96,24 +113,13 @@ const App: FC<{
 
   return useMemo(() => (
     <Root scheme={scheme} theme={theme}>
-      <Helmet title={options.title}/>
-      <CssBaseline/>
-      <Header>
-        <Toolbar>
-          <SidebarTrigger sidebarId="primarySidebar"/>
-          <HeaderEx options={options}/>
-        </Toolbar>
-      </Header>
-      <DrawerSidebar sidebarId="primarySidebar">
-        <SidebarContent>
-          <NavContentEx options={options}/>
-        </SidebarContent>
-      </DrawerSidebar>
-      <Content className={classes.content}>
-        <ContentEx options={options}/>
-      </Content>
+      <Helmet title={title}/>
+      {cssBaseline}
+      {header}
+      {sidebar}
+      {content}
     </Root>
-  ), [classes, theme]);
+  ), [title, classes, theme]);
 };
 
 export default App;

@@ -1,7 +1,8 @@
 import {FC} from 'react';
 
 export type AppOptions = {
-  title: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  title: string | ((store: { [key: string]: any }) => string);
   pages: {
     [key: string]: {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
