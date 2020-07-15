@@ -13,10 +13,14 @@ export type AppOptions = {
   };
   firstPage?: string;
   parts?: {
-    beforeMenu?: () => FC;
-    afterMenu?: () => FC;
-    beforeHeaderTitle?: () => FC;
-    afterHeaderTitle?: () => FC;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    beforeMenu?: (store: { [key: string]: any }) => FC;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    afterMenu?: (store: { [key: string]: any }) => FC;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    beforeHeaderTitle?: (store: { [key: string]: any }) => FC;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    afterHeaderTitle?: (store: { [key: string]: any }) => FC;
   };
   store?: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
