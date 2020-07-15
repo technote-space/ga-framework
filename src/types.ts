@@ -1,22 +1,29 @@
 import {FC} from 'react';
 
+type PageType = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  component: () => FC<any>;
+  icon: string;
+  text: string;
+}
+export type PagesType = {
+  [key: string]: PageType;
+}
 export type AppOptions = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   title: string | ((store: { [key: string]: any }) => string);
-  pages: {
-    [key: string]: {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      component: () => FC<any>;
-      icon: string;
-      text: string;
-    };
-  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  pages: PagesType | ((store: { [key: string]: any }) => PagesType);
   firstPage?: string;
   parts?: {
-    beforeMenu?: () => FC;
-    afterMenu?: () => FC;
-    beforeHeaderTitle?: () => FC;
-    afterHeaderTitle?: () => FC;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    beforeMenu?: (store: { [key: string]: any }) => FC;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    afterMenu?: (store: { [key: string]: any }) => FC;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    beforeHeaderTitle?: (store: { [key: string]: any }) => FC;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    afterHeaderTitle?: (store: { [key: string]: any }) => FC;
   };
   store?: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

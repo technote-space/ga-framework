@@ -1,28 +1,36 @@
 import React, {useState, useMemo, useEffect, ReactElement, FC} from 'react';
-import {useStoreContext} from '../Store';
+import {useStoreContext, useDispatchContext} from '../Store';
 import {LoadingAnimation} from '../components';
 import {AppOptions} from '../../types';
+import {getPages} from '../common';
 
 const Switching: FC<{
   options: AppOptions;
 }> = ({options}) => {
-  const {store: {page, status}}     = useStoreContext();
-  const [nextPage, setNextPage]     = useState<ReactElement | null>(null);
-  const [components, setComponents] = useState({});
+  const {store: {page, status}, store} = useStoreContext();
+  const {dispatch}                     = useDispatchContext();
+  const [nextPage, setNextPage]        = useState<ReactElement | null>(null);
+  const [components, setComponents]    = useState({});
 
+  const pages = useMemo(() => getPages(options, store), [store]);
   useEffect(() => {
     // eslint-disable-next-line no-magic-numbers
     window.scrollTo(0, 0);
-    if (page in options.pages) {
+    if (!page) {
+      dispatch({type: 'PAGE', page: Object.keys(pages)[0]});
+      return;
+    }
+
+    if (page in pages) {
       if (page in components) {
         setNextPage(components[page]);
       } else {
-        const component = options.pages[page].component();
+        const component = pages[page].component();
         setComponents({...components, ...{[page]: component}});
         setNextPage(component);
       }
     }
-  }, [page]);
+  }, [page, pages]);
 
   const loadingView = useMemo(() => <LoadingAnimation/>, []);
   const pageView    = useMemo(() => nextPage, [nextPage]);

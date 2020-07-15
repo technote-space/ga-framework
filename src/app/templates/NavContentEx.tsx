@@ -13,6 +13,7 @@ import {useSidebar} from '@mui-treasury/layout/hooks';
 import clsx from 'clsx';
 import {useStoreContext, useDispatchContext} from '../Store';
 import {AppOptions} from '../../types';
+import {getPages} from '../common';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   list: {
@@ -56,11 +57,12 @@ const NavContentEx: FC<{
     setOpen('primarySidebar', false);
   };
 
+  const pages      = useMemo(() => getPages(options, store), [store]);
   const menu       = useMemo(() => <List>
-    {Object.keys(options.pages).map(page => ({
+    {Object.keys(pages).map(page => ({
       page,
-      text: options.pages[page].text,
-      icon: options.pages[page].icon,
+      text: pages[page].text,
+      icon: pages[page].icon,
     })).map(item =>
       <ListItem
         key={item.page}
@@ -71,8 +73,8 @@ const NavContentEx: FC<{
       </ListItem>,
     )}
   </List>, [classes, page]);
-  const beforeMenu = useMemo(() => options.parts?.beforeMenu ? options.parts.beforeMenu() : null, []);
-  const afterMenu  = useMemo(() => options.parts?.afterMenu ? options.parts.afterMenu() : null, []);
+  const beforeMenu = useMemo(() => options.parts?.beforeMenu ? options.parts.beforeMenu(store) : null, []);
+  const afterMenu  = useMemo(() => options.parts?.afterMenu ? options.parts.afterMenu(store) : null, []);
 
   useEffect(() => {
     (async(): Promise<void> => {
