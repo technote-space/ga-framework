@@ -7,12 +7,12 @@ import {getPages} from '../common';
 const Switching: FC<{
   options: AppOptions;
 }> = ({options}) => {
-  const {store: {page, status}, store} = useStoreContext();
-  const {dispatch}                     = useDispatchContext();
-  const [nextPage, setNextPage]        = useState<ReactElement | null>(null);
-  const [components, setComponents]    = useState({});
+  const {store: {page, status}}     = useStoreContext();
+  const {dispatch}                  = useDispatchContext();
+  const [nextPage, setNextPage]     = useState<ReactElement | null>(null);
+  const [components, setComponents] = useState({});
 
-  const pages = useMemo(() => getPages(options, store), [store]);
+  const pages = useMemo(() => getPages(options), []);
   useEffect(() => {
     // eslint-disable-next-line no-magic-numbers
     window.scrollTo(0, 0);

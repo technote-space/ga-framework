@@ -57,7 +57,7 @@ const NavContentEx: FC<{
     setOpen('primarySidebar', false);
   };
 
-  const pages      = useMemo(() => getPages(options, store), [store]);
+  const pages      = useMemo(() => getPages(options), []);
   const menu       = useMemo(() => <List>
     {Object.keys(pages).map(page => ({
       page,
