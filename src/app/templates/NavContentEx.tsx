@@ -13,7 +13,6 @@ import {useSidebar} from '@mui-treasury/layout/hooks';
 import clsx from 'clsx';
 import {useStoreContext, useDispatchContext} from '../Store';
 import {AppOptions} from '../../types';
-import {getPages} from '../common';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   list: {
@@ -57,12 +56,12 @@ const NavContentEx: FC<{
     setOpen('primarySidebar', false);
   };
 
-  const pages      = useMemo(() => getPages(options), []);
+  const hidePages  = useMemo(() => options.hidePages ? options.hidePages(store) : [], [store]);
   const menu       = useMemo(() => <List>
-    {Object.keys(pages).map(page => ({
+    {Object.keys(options.pages).filter(page => !hidePages.includes(page)).map(page => ({
       page,
-      text: pages[page].text,
-      icon: pages[page].icon,
+      text: options.pages[page].text,
+      icon: options.pages[page].icon,
     })).map(item =>
       <ListItem
         key={item.page}
@@ -72,7 +71,7 @@ const NavContentEx: FC<{
         <ListItemText primary={item.text} primaryTypographyProps={{noWrap: true}}/>
       </ListItem>,
     )}
-  </List>, [classes, page]);
+  </List>, [page, hidePages, classes]);
   const beforeMenu = useMemo(() => options.parts?.beforeMenu ? options.parts.beforeMenu() : null, []);
   const afterMenu  = useMemo(() => options.parts?.afterMenu ? options.parts.afterMenu() : null, []);
 
