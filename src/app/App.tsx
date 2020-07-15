@@ -76,7 +76,7 @@ const App: FC<{
   const theme                                      = responsiveFontSizes(createMuiTheme(themeObject));
   const classes                                    = useStyles({theme});
 
-  const title       = useMemo(() => getTitle(options, store), [store, options.title]);
+  const title       = useMemo(() => getTitle(options, store), [store]);
   const cssBaseline = useMemo(() => <CssBaseline/>, []);
   const header      = useMemo(() => <Header>
     <Toolbar>
