@@ -12,8 +12,7 @@ export type PagesType = {
 export type AppOptions = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   title: string | ((store: { [key: string]: any }) => string);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  pages: PagesType | ((store: { [key: string]: any }) => PagesType);
+  pages: PagesType | (() => PagesType);
   firstPage?: string;
   parts?: {
     beforeMenu?: () => FC;
