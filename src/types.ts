@@ -16,14 +16,10 @@ export type AppOptions = {
   pages: PagesType | ((store: { [key: string]: any }) => PagesType);
   firstPage?: string;
   parts?: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    beforeMenu?: (store: { [key: string]: any }) => FC;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    afterMenu?: (store: { [key: string]: any }) => FC;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    beforeHeaderTitle?: (store: { [key: string]: any }) => FC;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    afterHeaderTitle?: (store: { [key: string]: any }) => FC;
+    beforeMenu?: () => FC;
+    afterMenu?: () => FC;
+    beforeHeaderTitle?: () => FC;
+    afterHeaderTitle?: () => FC;
   };
   store?: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

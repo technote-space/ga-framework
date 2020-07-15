@@ -24,8 +24,8 @@ const HeaderEx: FC<{
 
   const title             = useMemo(() => getTitle(options, store), [store, options.title]);
   const titleView         = useMemo(() => <Typography noWrap color={'textSecondary'} className={classes.header}>{title}</Typography>, [classes]);
-  const beforeHeaderTitle = useMemo(() => options.parts?.beforeHeaderTitle ? options.parts.beforeHeaderTitle(store) : null, [store]);
-  const afterHeaderTitle  = useMemo(() => options.parts?.afterHeaderTitle ? options.parts.afterHeaderTitle(store) : null, [store]);
+  const beforeHeaderTitle = useMemo(() => options.parts?.beforeHeaderTitle ? options.parts.beforeHeaderTitle() : null, []);
+  const afterHeaderTitle  = useMemo(() => options.parts?.afterHeaderTitle ? options.parts.afterHeaderTitle() : null, []);
 
   return <>
     {beforeHeaderTitle}
