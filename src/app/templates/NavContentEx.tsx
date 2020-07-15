@@ -73,8 +73,8 @@ const NavContentEx: FC<{
       </ListItem>,
     )}
   </List>, [classes, page]);
-  const beforeMenu = useMemo(() => options.parts?.beforeMenu ? options.parts.beforeMenu(store) : null, []);
-  const afterMenu  = useMemo(() => options.parts?.afterMenu ? options.parts.afterMenu(store) : null, []);
+  const beforeMenu = useMemo(() => options.parts?.beforeMenu ? options.parts.beforeMenu(store) : null, [store]);
+  const afterMenu  = useMemo(() => options.parts?.afterMenu ? options.parts.afterMenu(store) : null, [store]);
 
   useEffect(() => {
     (async(): Promise<void> => {
