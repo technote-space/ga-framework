@@ -1,4 +1,4 @@
-import {AppOptions} from '../types';
+import {AppOptions, PagesType} from '../types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/explicit-module-boundary-types
 export const getProcessContext = async(options: AppOptions, store: any): Promise<({ [key: string]: any }) | undefined> => ({
@@ -15,3 +15,6 @@ export const reloadWorker = (dispatch: (value: any) => void): void => dispatch({
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getTitle = (options: AppOptions, store: { [key: string]: any }): string => typeof options.title === 'string' ? options.title : options.title(store);
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getPages = (options: AppOptions, store: { [key: string]: any }): PagesType => typeof options.pages === 'function' ? options.pages(store) : options.pages;

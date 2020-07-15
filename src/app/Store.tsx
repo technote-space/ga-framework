@@ -13,7 +13,7 @@ export const useDispatchContext = (): any => useContext(DispatchContext);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getInitialState = (options: AppOptions): { [key: string]: any } => {
   const initialState = {
-    page: options.firstPage ?? Object.keys(options.pages)[0],
+    page: options.firstPage,
     themeColor: 'dark',
     status: 'none',
     reloadWorker: false,
