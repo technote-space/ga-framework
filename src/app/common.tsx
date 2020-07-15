@@ -16,5 +16,4 @@ export const reloadWorker = (dispatch: (value: any) => void): void => dispatch({
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getTitle = (options: AppOptions, store: { [key: string]: any }): string => typeof options.title === 'string' ? options.title : options.title(store);
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getPages = (options: AppOptions, store: { [key: string]: any }): PagesType => typeof options.pages === 'function' ? options.pages(store) : options.pages;
+export const getPages = (options: AppOptions): PagesType => typeof options.pages === 'function' ? options.pages() : options.pages;
