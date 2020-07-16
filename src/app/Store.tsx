@@ -2,11 +2,11 @@ import React, {useReducer, createContext, useContext, useCallback, useMemo, useE
 import {AppOptions} from '../types';
 import {getProcessContext} from './common';
 
-const StoreContext = createContext({});
+const StoreContext           = createContext({});
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useStoreContext = (): any => useContext(StoreContext);
 
-const DispatchContext = createContext({});
+const DispatchContext           = createContext({});
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useDispatchContext = (): any => useContext(DispatchContext);
 
@@ -23,6 +23,11 @@ export const getInitialState = (options: AppOptions): { [key: string]: any } => 
       start: store => (): void => store.worker?.start(),
       stop: store => (): void => store.worker?.stop(),
     },
+    notice: {
+      open: false,
+      message: '',
+      variant: 'success',
+    },
   };
   return options.store?.state ? options.store.state(initialState) : initialState;
 };
@@ -31,7 +36,7 @@ export const StoreContextProvider: FC<{
   options: AppOptions;
 }> = ({children, options}) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const getReducer = useCallback((store, action): any => {
+  const getReducer        = useCallback((store, action): any => {
     switch (action.type) {
       case 'PAGE':
         return {...store, page: action.page};
@@ -47,6 +52,12 @@ export const StoreContextProvider: FC<{
         return {...store, status: action.result.status};
       case 'RELOAD_WORKER':
         return {...store, reloadWorker: !store.reloadWorker};
+      case 'SET_NOTICE':
+        return {...store, notice: {...{open: true, variant: 'success'}, ...action.notice}};
+      case 'SET_ERROR':
+        return {...store, notice: {...{open: true, variant: 'error'}, ...action.notice}};
+      case 'CLOSE_NOTICE':
+        return {...store, notice: {open: false, variant: 'success'}};
       default:
         if (options.store?.reducer) {
           return options.store.reducer(store, action);

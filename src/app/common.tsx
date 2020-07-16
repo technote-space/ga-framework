@@ -15,3 +15,12 @@ export const reloadWorker = (dispatch: (value: any) => void): void => dispatch({
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getTitle = (options: AppOptions, store: { [key: string]: any }): string => typeof options.title === 'string' ? options.title : options.title(store);
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const setNotice = (message: string, dispatch: (value: any) => void): void => dispatch({type: 'SET_NOTICE', notice: {message}});
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const setError = (message: string, dispatch: (value: any) => void): void => dispatch({type: 'SET_ERROR', notice: {message}});
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const closeNotice = (dispatch: (value: any) => void): void => dispatch({type: 'CLOSE_NOTICE'});
