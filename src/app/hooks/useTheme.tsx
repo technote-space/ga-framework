@@ -39,6 +39,10 @@ const useTheme = (themeColor?: 'light' | 'dark'): Theme => {
         MuiTable: {
           size: 'small',
         },
+        MuiLink: {
+          color: 'textPrimary',
+          underline: 'always',
+        },
       },
       palette: {
         type: colorMode,
