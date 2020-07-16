@@ -57,7 +57,7 @@ export const StoreContextProvider: FC<{
       case 'SET_ERROR':
         return {...store, notice: {...{open: true, variant: 'error'}, ...action.notice}};
       case 'CLOSE_NOTICE':
-        return {...store, notice: {open: false, variant: 'success'}};
+        return {...store, notice: {open: false}};
       default:
         if (options.store?.reducer) {
           return options.store.reducer(store, action);
