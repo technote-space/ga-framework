@@ -53,11 +53,11 @@ export const StoreContextProvider: FC<{
       case 'RELOAD_WORKER':
         return {...store, reloadWorker: !store.reloadWorker};
       case 'SET_NOTICE':
-        return {...store, notice: {...{open: true, variant: 'success'}, ...action.notice}};
+        return {...store, notice: {...{open: true, variant: 'success', message: ''}, ...action.notice}};
       case 'SET_ERROR':
-        return {...store, notice: {...{open: true, variant: 'error'}, ...action.notice}};
+        return {...store, notice: {...{open: true, variant: 'error', message: ''}, ...action.notice}};
       case 'CLOSE_NOTICE':
-        return {...store, notice: {open: false}};
+        return {...store, notice: {open: false, message: ''}};
       default:
         if (options.store?.reducer) {
           return options.store.reducer(store, action);
