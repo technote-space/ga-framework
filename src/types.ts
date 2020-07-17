@@ -1,8 +1,8 @@
-import {FC} from 'react';
+import {ReactElement} from 'react';
 
 type PageType = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  component: () => FC<any>;
+  component: () => ReactElement;
   icon: string;
   text: string;
 }
@@ -17,10 +17,10 @@ export type AppOptions = {
   hidePages?: ((store: { [key: string]: any }) => Array<string>);
   firstPage?: string;
   parts?: {
-    beforeMenu?: () => FC;
-    afterMenu?: () => FC;
-    beforeHeaderTitle?: () => FC;
-    afterHeaderTitle?: () => FC;
+    beforeMenu?: () => ReactElement;
+    afterMenu?: () => ReactElement;
+    beforeHeaderTitle?: () => ReactElement;
+    afterHeaderTitle?: () => ReactElement;
   };
   store?: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
