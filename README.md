@@ -17,6 +17,7 @@ GA Framework
 - [Install](#install)
 - [Samples](#samples)
   - [Automatic programming](#automatic-programming)
+  - [Game Learning System](#game-learning-system)
   - [Figure ground](#figure-ground)
 - [Author](#author)
 
