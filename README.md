@@ -32,6 +32,9 @@ yarn add @technote-space/ga-framework
 ### Automatic programming
 [demo](https://technote-space.github.io/ga-framework/samples/automatic-programming)
 
+### Game Learning System
+[demo](https://technote-space.github.io/ga-framework/samples/game-learning-system)
+
 ### Figure ground
 [demo](https://technote-space.github.io/ga-framework/samples/auto-figure-ground)
 
