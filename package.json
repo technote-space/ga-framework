@@ -44,7 +44,7 @@
     "styled-components": "^5.1.1",
     "vis-data": "^6.6.1",
     "vis-network": "^7.10.0",
-    "vis-util": "^4.3.2"
+    "vis-util": "^4.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -63,7 +63,7 @@
     "babel-plugin-react-html-attrs": "^3.0.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "copy-webpack-plugin": "^6.0.3",
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "html-webpack-plugin": "^4.3.0",
