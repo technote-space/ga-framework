@@ -17,6 +17,7 @@ GA Framework
 - [Install](#install)
 - [Samples](#samples)
   - [Automatic programming](#automatic-programming)
+  - [Game Learning System](#game-learning-system)
   - [Figure ground](#figure-ground)
 - [Author](#author)
 
@@ -31,6 +32,9 @@ yarn add @technote-space/ga-framework
 ## Samples
 ### Automatic programming
 [demo](https://technote-space.github.io/ga-framework/samples/automatic-programming)
+
+### Game Learning System
+[demo](https://technote-space.github.io/ga-framework/samples/game-learning-system)
 
 ### Figure ground
 [demo](https://technote-space.github.io/ga-framework/samples/auto-figure-ground)
