@@ -11,14 +11,14 @@ const Switching: FC<{
   const [nextPage, setNextPage]        = useState<ReactElement | null>(null);
   const [components, setComponents]    = useState({});
 
-  const hidePages       = useMemo(() => options.hidePages ? options.hidePages(store) : [], [store]);
+  const hidePages       = useMemo(() => options.hidePages ? options.hidePages(store) : null, [store]);
   const searchValidPage = () => {
     const keys   = Object.keys(options.pages);
     const index  = keys.indexOf(page);
     let useIndex = -1;
     // eslint-disable-next-line no-magic-numbers
     for (let search = index; --search >= 0;) {
-      if (!hidePages.includes(keys[search])) {
+      if (!hidePages || !hidePages.includes(keys[search])) {
         useIndex = search;
         break;
       }
@@ -28,7 +28,7 @@ const Switching: FC<{
     if (useIndex < 0) {
       // eslint-disable-next-line no-magic-numbers
       for (let search = index + 1; search < keys.length; search++) {
-        if (!hidePages.includes(keys[search])) {
+        if (!hidePages || !hidePages.includes(keys[search])) {
           useIndex = search;
           break;
         }
@@ -46,7 +46,7 @@ const Switching: FC<{
     }
 
     if (page in options.pages) {
-      if (hidePages.includes(page)) {
+      if (hidePages && hidePages.includes(page)) {
         dispatch({type: 'PAGE', page: searchValidPage()});
         return;
       }
