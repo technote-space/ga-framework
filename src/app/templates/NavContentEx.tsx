@@ -76,29 +76,27 @@ const NavContentEx: FC<{
   const afterMenu  = useMemo(() => options.parts?.afterMenu ? options.parts.afterMenu() : null, []);
 
   useEffect(() => {
-    (async(): Promise<void> => {
-      if (worker) {
-        setController(<div className={classes.wrap}>
-          <div className={classes.wrapButtons}>
-            <Button
-              className={classes.button}
-              onClick={control.reset(store)}
-              disabled={status === 'disabled' || (status !== 'initialized' && status !== 'finished' && status !== 'canceled')}
-            >
-              Reset
-            </Button>
-            <Button className={classes.button} onClick={control.start(store)} disabled={status === 'disabled' || (status !== 'initialized' && status !== 'canceled')}>
-              Start
-            </Button>
-            <Button className={classes.button} onClick={control.stop(store)} disabled={status === 'disabled' || status !== 'started'}>
-              Stop
-            </Button>
-          </div>
-        </div>);
-      } else {
-        setController(null);
-      }
-    })().then();
+    if (worker) {
+      setController(<div className={classes.wrap}>
+        <div className={classes.wrapButtons}>
+          <Button
+            className={classes.button}
+            onClick={control.reset(store)}
+            disabled={status === 'disabled' || (status !== 'initialized' && status !== 'finished' && status !== 'canceled')}
+          >
+            Reset
+          </Button>
+          <Button className={classes.button} onClick={control.start(store)} disabled={status === 'disabled' || (status !== 'initialized' && status !== 'canceled')}>
+            Start
+          </Button>
+          <Button className={classes.button} onClick={control.stop(store)} disabled={status === 'disabled' || status !== 'started'}>
+            Stop
+          </Button>
+        </div>
+      </div>);
+    } else {
+      setController(null);
+    }
   }, [worker, status, classes]);
 
   return <>
