@@ -3,7 +3,7 @@ Do Not Translate or Localize
 
 
 --------------------------------------------------------------------------------
-@babel/runtime v7.10.4 - Sebastian McKenzie <sebmck@gmail.com>
+@babel/runtime v7.11.0 - Sebastian McKenzie <sebmck@gmail.com>
 https://github.com/babel/babel.git
 --------------------------------------------------------------------------------
 
@@ -312,7 +312,7 @@ SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/ga-framework v0.5.4 - Technote
+@technote-space/ga-framework v0.11.0 - Technote
 https://github.com/technote-space/ga-framework.git
 --------------------------------------------------------------------------------
 
@@ -340,7 +340,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/genetic-algorithms-js v0.5.8 - Technote
+@technote-space/genetic-algorithms-js v0.7.0 - Technote
 https://github.com/technote-space/genetic-algorithms-js.git
 --------------------------------------------------------------------------------
 
@@ -368,7 +368,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/worker-controller v0.4.4 - Technote
+@technote-space/worker-controller v0.5.2 - Technote
 https://github.com/technote-space/worker-controller.git
 --------------------------------------------------------------------------------
 
@@ -629,7 +629,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 --------------------------------------------------------------------------------
-hyphenate-style-name v1.0.3 - Espen Hovlandsdal <espen@hovlandsdal.com>
+hyphenate-style-name v1.0.4 - Espen Hovlandsdal <espen@hovlandsdal.com>
 git+ssh://git@github.com/rexxars/hyphenate-style-name.git
 --------------------------------------------------------------------------------
 
@@ -1722,7 +1722,7 @@ END OF TERMS AND CONDITIONS
 
 
 --------------------------------------------------------------------------------
-vis-network v7.9.0
+vis-network v7.10.2
 https://github.com/visjs/vis-network.git
 --------------------------------------------------------------------------------
 
@@ -1905,7 +1905,7 @@ END OF TERMS AND CONDITIONS
 
 
 --------------------------------------------------------------------------------
-webpack v4.43.0 - Tobias Koppers @sokra
+webpack v4.44.1 - Tobias Koppers @sokra
 https://github.com/webpack/webpack.git
 --------------------------------------------------------------------------------
 
