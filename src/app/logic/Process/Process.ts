@@ -61,7 +61,7 @@ global['Process'] = class Process extends ProcessBase<any> {
     return this.algorithm.reset();
   }
 
-  public step(): Promise<void> {
+  public async step(): Promise<void> {
     return this.algorithm.step();
   }
 
