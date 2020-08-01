@@ -28,8 +28,33 @@ export const getInitialState = (options: AppOptions): { [key: string]: any } => 
       message: '',
       variant: 'success',
     },
+    histories: [],
   };
   return options.store?.state ? options.store.state(initialState) : initialState;
+};
+
+const resultReducer = (store, result) => {
+  const histories = store.histories;
+  if (!result.progress) {
+    histories.length = 0;
+  }
+
+  // eslint-disable-next-line no-magic-numbers
+  const dataX = Math.floor(result.progress * 100);
+  // eslint-disable-next-line no-magic-numbers
+  const dataY = Math.floor(result.population[0].fitness * 1000) / 1000;
+  const index = histories.findIndex(value => value.x === dataX);
+  // eslint-disable-next-line no-magic-numbers
+  if (index < 0) {
+    histories.push({x: dataX, y: dataY});
+  } else {
+    histories[index].y = dataY;
+  }
+
+  return {
+    ...store,
+    histories: [...histories],
+  };
 };
 
 export const StoreContextProvider: FC<{
@@ -58,7 +83,12 @@ export const StoreContextProvider: FC<{
         return {...store, notice: {...store.notice, ...{open: true, variant: 'error'}, ...action.notice}};
       case 'CLOSE_NOTICE':
         return {...store, notice: {...store.notice, ...{open: false}}};
+      case 'RESULT':
       default:
+        if (action.type === 'RESULT') {
+          store = resultReducer(store, action.result);
+        }
+
         if (options.store?.reducer) {
           return options.store.reducer(store, action);
         }
