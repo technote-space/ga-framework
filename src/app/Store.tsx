@@ -29,6 +29,10 @@ export const getInitialState = (options: AppOptions): { [key: string]: any } => 
       variant: 'success',
     },
     histories: [],
+    pagination: {
+      page: 0,
+      rowsPerPage: 10,
+    },
   };
   return options.store?.state ? options.store.state(initialState) : initialState;
 };
@@ -90,6 +94,22 @@ export const StoreContextProvider: FC<{
         return {...store, notice: {...store.notice, ...{open: true, variant: 'error'}, ...action.notice}};
       case 'CLOSE_NOTICE':
         return {...store, notice: {...store.notice, ...{open: false}}};
+      case 'PAGINATION_PAGE':
+        return {
+          ...store,
+          pagination: {
+            page: action.page,
+            rowsPerPage: store.pagination.rowsPerPage,
+          },
+        };
+      case 'PAGINATION_PER_PAGE':
+        return {
+          ...store,
+          pagination: {
+            page: store.pagination.page,
+            rowsPerPage: action.rowsPerPage,
+          },
+        };
       case 'RESULT':
       default:
         if (action.type === 'RESULT') {
