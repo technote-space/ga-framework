@@ -1,5 +1,5 @@
 /* eslint-disable no-magic-numbers */
-import React, {useMemo, FC, ElementType} from 'react';
+import React, {useMemo, FC, ElementType, ReactElement} from 'react';
 import PropTypes from 'prop-types';
 import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
 import {
@@ -93,7 +93,7 @@ TablePaginationActions.propTypes = {
 const List: FC<{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   population: Array<any>;
-  render: (any, index: number) => HTMLElement;
+  render: (any, index: number) => ReactElement;
   rowsPerPageOptions?: Array<number>;
 }> = ({population, render, rowsPerPageOptions}) => {
   const classes                                    = useStyles2();
