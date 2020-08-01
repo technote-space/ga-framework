@@ -7,7 +7,7 @@ import {useStoreContext} from '../Store';
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     // eslint-disable-next-line no-magic-numbers
-    padding: theme.spacing(0, 20),
+    padding: theme.spacing(0, 2),
   },
 }));
 
