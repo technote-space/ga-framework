@@ -39,6 +39,13 @@ const resultReducer = (store, result) => {
     histories.length = 0;
   }
 
+  if (!result.population.length) {
+    return {
+      ...store,
+      histories: [...histories],
+    };
+  }
+
   // eslint-disable-next-line no-magic-numbers
   const dataX = Math.floor(result.progress * 100);
   // eslint-disable-next-line no-magic-numbers
