@@ -13,6 +13,6 @@ export const GaFramework: FC<{ options: AppOptions }> = ({options}) => <StoreCon
 export {AppOptions};
 export {IGeneticAlgorithm, GeneticAlgorithmBase} from './app/logic/Algorithm';
 export {useStoreContext, useDispatchContext} from './app/Store';
-export {Graph} from './app/components';
+export {Graph, Timeline} from './app/components';
 export {getProcessContext, updateStatus, reloadWorker, setNotice, setError, closeNotice} from './app/common';
 export {useTheme};
