@@ -312,7 +312,7 @@ SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/ga-framework v0.11.0 - Technote
+@technote-space/ga-framework v0.13.4 - Technote
 https://github.com/technote-space/ga-framework.git
 --------------------------------------------------------------------------------
 
@@ -340,7 +340,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/genetic-algorithms-js v0.7.0 - Technote
+@technote-space/genetic-algorithms-js v0.8.0 - Technote
 https://github.com/technote-space/genetic-algorithms-js.git
 --------------------------------------------------------------------------------
 
