@@ -30,6 +30,7 @@ export const getInitialState = (options: AppOptions): { [key: string]: any } => 
     },
     histories: [],
     pagination: {
+      initialized: false,
       page: 0,
       rowsPerPage: 10,
     },
@@ -94,19 +95,27 @@ export const StoreContextProvider: FC<{
         return {...store, notice: {...store.notice, ...{open: true, variant: 'error'}, ...action.notice}};
       case 'CLOSE_NOTICE':
         return {...store, notice: {...store.notice, ...{open: false}}};
+      case 'PAGINATION_INITIALIZED':
+        return {
+          ...store,
+          pagination: {
+            ...store.pagination,
+            initialized: true,
+          },
+        };
       case 'PAGINATION_PAGE':
         return {
           ...store,
           pagination: {
+            ...store.pagination,
             page: action.page,
-            rowsPerPage: store.pagination.rowsPerPage,
           },
         };
       case 'PAGINATION_PER_PAGE':
         return {
           ...store,
           pagination: {
-            page: store.pagination.page,
+            ...store.pagination,
             rowsPerPage: action.rowsPerPage,
           },
         };

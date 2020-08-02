@@ -89,9 +89,9 @@ const List: FC<{
   rowsPerPageOptions?: Array<number>;
   defaultPerPage?: number;
 }> = ({population, render, rowsPerPageOptions, defaultPerPage}) => {
-  const classes                                    = useStyles2();
-  const {store: {pagination: {page, rowsPerPage}}} = useStoreContext();
-  const {dispatch}                                 = useDispatchContext();
+  const classes                                                 = useStyles2();
+  const {store: {pagination: {page, rowsPerPage, initialized}}} = useStoreContext();
+  const {dispatch}                                              = useDispatchContext();
 
   const emptyRows               = rowsPerPage - Math.min(rowsPerPage, population.length - page * rowsPerPage);
   const handleChangePage        = (event, newPage) => {
@@ -103,14 +103,17 @@ const List: FC<{
   };
 
   useEffect(() => {
-    if (defaultPerPage) {
-      if (defaultPerPage !== rowsPerPage) {
-        dispatch({type: 'PAGINATION_PER_PAGE', rowsPerPage: defaultPerPage});
+    if (!initialized) {
+      if (defaultPerPage) {
+        if (defaultPerPage !== rowsPerPage) {
+          dispatch({type: 'PAGINATION_PER_PAGE', rowsPerPage: defaultPerPage});
+        }
+      } else if (rowsPerPageOptions && rowsPerPageOptions[0] !== rowsPerPage) {
+        dispatch({type: 'PAGINATION_PER_PAGE', rowsPerPage: rowsPerPageOptions[0]});
       }
-    } else if (rowsPerPageOptions && rowsPerPageOptions[0] !== rowsPerPage) {
-      dispatch({type: 'PAGINATION_PER_PAGE', rowsPerPage: rowsPerPageOptions[0]});
+      dispatch({type: 'PAGINATION_INITIALIZED'});
     }
-  }, [rowsPerPageOptions, defaultPerPage]);
+  }, []);
 
 
   return useMemo(
