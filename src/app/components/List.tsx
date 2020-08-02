@@ -1,6 +1,5 @@
 /* eslint-disable no-magic-numbers */
-import React, {useMemo, FC, ElementType, ReactElement} from 'react';
-import PropTypes from 'prop-types';
+import React, {useMemo, useEffect, FC, ElementType, ReactElement} from 'react';
 import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
 import {
   Table,
@@ -83,19 +82,13 @@ const TablePaginationActions: ElementType<TablePaginationActionsProps> = ({count
   );
 };
 
-TablePaginationActions.propTypes = {
-  count: PropTypes.number.isRequired,
-  onChangePage: PropTypes.func.isRequired,
-  page: PropTypes.number.isRequired,
-  rowsPerPage: PropTypes.number.isRequired,
-};
-
 const List: FC<{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   population: Array<any>;
   render: (any, index: number) => ReactElement;
   rowsPerPageOptions?: Array<number>;
-}> = ({population, render, rowsPerPageOptions}) => {
+  defaultPerPage?: number;
+}> = ({population, render, rowsPerPageOptions, defaultPerPage}) => {
   const classes                                    = useStyles2();
   const {store: {pagination: {page, rowsPerPage}}} = useStoreContext();
   const {dispatch}                                 = useDispatchContext();
@@ -108,6 +101,17 @@ const List: FC<{
     dispatch({type: 'PAGINATION_PER_PAGE', rowsPerPage: parseInt(event.target.value, 10)});
     dispatch({type: 'PAGINATION_PAGE', page: 0});
   };
+
+  useEffect(() => {
+    if (defaultPerPage) {
+      if (defaultPerPage !== rowsPerPage) {
+        dispatch({type: 'PAGINATION_PER_PAGE', rowsPerPage: defaultPerPage});
+      }
+    } else if (rowsPerPageOptions && rowsPerPageOptions[0] !== rowsPerPage) {
+      dispatch({type: 'PAGINATION_PER_PAGE', rowsPerPage: rowsPerPageOptions[0]});
+    }
+  }, [rowsPerPageOptions, defaultPerPage]);
+
 
   return useMemo(
     () => <TableContainer component={Paper}>
