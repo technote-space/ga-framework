@@ -16,6 +16,7 @@ GA Framework
 
 - [Install](#install)
 - [Samples](#samples)
+  - [Hello World!](#hello-world)
   - [Automatic programming](#automatic-programming)
   - [Game Learning System](#game-learning-system)
   - [Figure ground](#figure-ground)
@@ -30,6 +31,11 @@ yarn add @technote-space/ga-framework
 ```
 
 ## Samples
+### Hello World!
+[demo](https://technote-space.github.io/ga-framework/samples/hello-genetic-algorithm)
+
+[repository](https://github.com/technote-space/hello-genetic-algorithm)
+
 ### Automatic programming
 [demo](https://technote-space.github.io/ga-framework/samples/automatic-programming)
 
