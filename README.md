@@ -15,6 +15,7 @@ GA Framework
 <summary>Details</summary>
 
 - [Install](#install)
+- [Template](#template)
 - [Samples](#samples)
   - [Hello World!](#hello-world)
   - [Automatic programming](#automatic-programming)
@@ -29,6 +30,9 @@ GA Framework
 ```shell script
 yarn add @technote-space/ga-framework
 ```
+
+## Template
+[Genetic Algorithm Template](https://github.com/technote-space/ga-framework-template)
 
 ## Samples
 ### Hello World!
