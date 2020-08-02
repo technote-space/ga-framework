@@ -15,6 +15,7 @@ GA Framework
 <summary>Details</summary>
 
 - [Install](#install)
+- [Template](#template)
 - [Samples](#samples)
   - [Hello World!](#hello-world)
   - [Automatic programming](#automatic-programming)
