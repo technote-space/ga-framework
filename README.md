@@ -30,6 +30,9 @@ GA Framework
 yarn add @technote-space/ga-framework
 ```
 
+## Template
+[Genetic Algorithm Template](https://github.com/technote-space/ga-framework-template)
+
 ## Samples
 ### Hello World!
 [demo](https://technote-space.github.io/ga-framework/samples/hello-genetic-algorithm)
