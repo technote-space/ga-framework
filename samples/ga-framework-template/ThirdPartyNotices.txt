@@ -3,7 +3,7 @@ Do Not Translate or Localize
 
 
 --------------------------------------------------------------------------------
-@babel/runtime v7.11.0 - Sebastian McKenzie <sebmck@gmail.com>
+@babel/runtime v7.11.2 - Sebastian McKenzie <sebmck@gmail.com>
 https://github.com/babel/babel.git
 --------------------------------------------------------------------------------
 
@@ -312,7 +312,7 @@ SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/ga-framework v0.14.2 - Technote
+@technote-space/ga-framework v0.14.6 - Technote
 https://github.com/technote-space/ga-framework.git
 --------------------------------------------------------------------------------
 
@@ -340,7 +340,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/genetic-algorithms-js v0.8.2 - Technote
+@technote-space/genetic-algorithms-js v0.8.6 - Technote
 https://github.com/technote-space/genetic-algorithms-js.git
 --------------------------------------------------------------------------------
 
@@ -368,7 +368,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/worker-controller v0.5.2 - Technote
+@technote-space/worker-controller v0.5.5 - Technote
 https://github.com/technote-space/worker-controller.git
 --------------------------------------------------------------------------------
 
@@ -396,7 +396,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-axios v0.19.2 - Matt Zabriskie
+axios v0.20.0 - Matt Zabriskie
 https://github.com/axios/axios.git
 --------------------------------------------------------------------------------
 
@@ -537,7 +537,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-dom-helpers v5.1.4 - Jason Quense
+dom-helpers v5.2.0 - Jason Quense
 git+https://github.com/react-bootstrap/dom-helpers.git
 --------------------------------------------------------------------------------
 
@@ -671,7 +671,7 @@ git+https://github.com/tuxsudo/is-in-browser.git
 MIT
 
 --------------------------------------------------------------------------------
-jss v10.3.0 - JSS Team
+jss v10.4.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -697,7 +697,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-camel-case v10.3.0 - JSS Team
+jss-plugin-camel-case v10.4.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -723,7 +723,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-default-unit v10.3.0 - JSS Team
+jss-plugin-default-unit v10.4.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -749,7 +749,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-global v10.3.0 - JSS Team
+jss-plugin-global v10.4.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -775,7 +775,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-nested v10.3.0 - JSS Team
+jss-plugin-nested v10.4.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -801,7 +801,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-props-sort v10.3.0 - JSS Team
+jss-plugin-props-sort v10.4.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -827,7 +827,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-rule-value-function v10.3.0 - JSS Team
+jss-plugin-rule-value-function v10.4.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -853,7 +853,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-vendor-prefixer v10.3.0 - JSS Team
+jss-plugin-vendor-prefixer v10.4.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -933,7 +933,7 @@ terms above.
 
 
 --------------------------------------------------------------------------------
-moment v2.27.0 - Iskren Ivov Chernev <iskren.chernev@gmail.com> (https://github.com/ichernev)
+moment v2.29.0 - Iskren Ivov Chernev <iskren.chernev@gmail.com> (https://github.com/ichernev)
 https://github.com/moment/moment.git
 --------------------------------------------------------------------------------
 
@@ -1347,7 +1347,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 --------------------------------------------------------------------------------
-styled-components v5.1.1 - Glen Maddern
+styled-components v5.2.0 - Glen Maddern
 git+https://github.com/styled-components/styled-components.git
 --------------------------------------------------------------------------------
 
@@ -1381,7 +1381,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 --------------------------------------------------------------------------------
-vis-data v6.6.1
+vis-data v7.0.0
 https://github.com/visjs/vis-data.git
 --------------------------------------------------------------------------------
 
@@ -1564,7 +1564,7 @@ END OF TERMS AND CONDITIONS
 
 
 --------------------------------------------------------------------------------
-vis-network v7.10.2
+vis-network v8.3.2
 https://github.com/visjs/vis-network.git
 --------------------------------------------------------------------------------
 
@@ -1747,7 +1747,7 @@ END OF TERMS AND CONDITIONS
 
 
 --------------------------------------------------------------------------------
-webpack v4.44.1 - Tobias Koppers @sokra
+webpack v4.44.2 - Tobias Koppers @sokra
 https://github.com/webpack/webpack.git
 --------------------------------------------------------------------------------
 
