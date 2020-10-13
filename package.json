@@ -83,6 +83,6 @@
     "test": "yarn lint",
     "lint": "eslint './src/**/*.{ts,tsx}' --cache",
     "lint:fix": "eslint --fix './src/**/*.{ts,tsx}'",
-    "update": "npx ncu -u && yarn install && yarn upgrade && yarn audit"
+    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit"
   }
 }
