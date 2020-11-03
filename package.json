@@ -1,23 +1,23 @@
 {
   "name": "@technote-space/ga-framework",
-  "version": "0.14.8",
+  "version": "0.14.9",
   "description": "GA Framework",
-  "author": {
-    "name": "Technote",
-    "email": "technote.space@gmail.com",
-    "url": "https://technote.space"
-  },
-  "license": "MIT",
   "keywords": [
     "genetic algorithm"
   ],
   "homepage": "https://github.com/technote-space/ga-framework",
+  "bugs": {
+    "url": "https://github.com/technote-space/ga-framework/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/technote-space/ga-framework.git"
   },
-  "bugs": {
-    "url": "https://github.com/technote-space/ga-framework/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Technote",
+    "email": "technote.space@gmail.com",
+    "url": "https://technote.space"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,6 +28,13 @@
     "src/assets",
     "src/public"
   ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint './src/**/*.{ts,tsx}' --cache",
+    "lint:fix": "eslint --fix './src/**/*.{ts,tsx}'",
+    "test": "yarn lint",
+    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit"
+  },
   "dependencies": {
     "@egjs/hammerjs": "^2.0.17",
     "@material-ui/core": "^4.11.0",
@@ -77,12 +84,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "port": 5000,
-  "scripts": {
-    "build": "tsc",
-    "test": "yarn lint",
-    "lint": "eslint './src/**/*.{ts,tsx}' --cache",
-    "lint:fix": "eslint --fix './src/**/*.{ts,tsx}'",
-    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit"
-  }
+  "port": 5000
 }
