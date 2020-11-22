@@ -7,5 +7,5 @@ export abstract class GeneticAlgorithmBase<ObjectType> extends AlgorithmBase imp
     //
   }
 
-  public abstract async getObject(): Promise<ObjectType>;
+  public abstract getObject(): Promise<ObjectType>;
 }
