@@ -3,7 +3,7 @@ Do Not Translate or Localize
 
 
 --------------------------------------------------------------------------------
-@babel/runtime v7.11.2 - Sebastian McKenzie <sebmck@gmail.com>
+@babel/runtime v7.12.5 - Sebastian McKenzie <sebmck@gmail.com>
 https://github.com/babel/babel.git
 --------------------------------------------------------------------------------
 
@@ -312,7 +312,7 @@ SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/ga-framework v0.14.6 - Technote
+@technote-space/ga-framework v0.14.10 - Technote
 https://github.com/technote-space/ga-framework.git
 --------------------------------------------------------------------------------
 
@@ -340,7 +340,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/genetic-algorithms-js v0.8.6 - Technote
+@technote-space/genetic-algorithms-js v0.8.10 - Technote
 https://github.com/technote-space/genetic-algorithms-js.git
 --------------------------------------------------------------------------------
 
@@ -368,7 +368,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@technote-space/worker-controller v0.5.5 - Technote
+@technote-space/worker-controller v0.5.11 - Technote
 https://github.com/technote-space/worker-controller.git
 --------------------------------------------------------------------------------
 
@@ -396,7 +396,7 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-axios v0.20.0 - Matt Zabriskie
+axios v0.21.0 - Matt Zabriskie
 https://github.com/axios/axios.git
 --------------------------------------------------------------------------------
 
@@ -422,7 +422,36 @@ THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-chart.js v2.9.3
+babel-loader v8.2.1 - Luis Couto <hello@luiscouto.pt>
+https://github.com/babel/babel-loader.git
+--------------------------------------------------------------------------------
+
+Copyright (c) 2014-2019 Luís Couto <hello@luiscouto.pt>
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+--------------------------------------------------------------------------------
+chart.js v2.9.4
 https://github.com/chartjs/Chart.js.git
 --------------------------------------------------------------------------------
 
@@ -564,7 +593,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 --------------------------------------------------------------------------------
-file-saver v2.0.2 - Eli Grey <me@eligrey.com>
+file-loader v6.2.0 - Tobias Koppers @sokra
+webpack-contrib/file-loader
+--------------------------------------------------------------------------------
+
+Copyright JS Foundation and other contributors
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+--------------------------------------------------------------------------------
+file-saver v2.0.5 - Eli Grey <me@eligrey.com>
 https://github.com/eligrey/FileSaver.js
 --------------------------------------------------------------------------------
 
@@ -629,6 +685,60 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 --------------------------------------------------------------------------------
+html-loader v1.3.2 - Tobias Koppers @sokra
+webpack-contrib/html-loader
+--------------------------------------------------------------------------------
+
+Copyright JS Foundation and other contributors
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+--------------------------------------------------------------------------------
+html-webpack-plugin v4.5.0 - Jan Nicklas <j.nicklas@me.com> (https://github.com/jantimon)
+https://github.com/jantimon/html-webpack-plugin.git
+--------------------------------------------------------------------------------
+
+Copyright JS Foundation and other contributors
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+--------------------------------------------------------------------------------
 hyphenate-style-name v1.0.4 - Espen Hovlandsdal <espen@hovlandsdal.com>
 git+ssh://git@github.com/rexxars/hyphenate-style-name.git
 --------------------------------------------------------------------------------
@@ -671,7 +781,7 @@ git+https://github.com/tuxsudo/is-in-browser.git
 MIT
 
 --------------------------------------------------------------------------------
-jss v10.4.0 - JSS Team
+jss v10.5.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -697,7 +807,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-camel-case v10.4.0 - JSS Team
+jss-plugin-camel-case v10.5.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -723,7 +833,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-default-unit v10.4.0 - JSS Team
+jss-plugin-default-unit v10.5.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -749,7 +859,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-global v10.4.0 - JSS Team
+jss-plugin-global v10.5.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -775,7 +885,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-nested v10.4.0 - JSS Team
+jss-plugin-nested v10.5.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -801,7 +911,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-props-sort v10.4.0 - JSS Team
+jss-plugin-props-sort v10.5.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -827,7 +937,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-rule-value-function v10.4.0 - JSS Team
+jss-plugin-rule-value-function v10.5.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -853,7 +963,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-jss-plugin-vendor-prefixer v10.4.0 - JSS Team
+jss-plugin-vendor-prefixer v10.5.0 - JSS Team
 https://github.com/cssinjs/jss
 --------------------------------------------------------------------------------
 
@@ -933,7 +1043,7 @@ terms above.
 
 
 --------------------------------------------------------------------------------
-moment v2.29.0 - Iskren Ivov Chernev <iskren.chernev@gmail.com> (https://github.com/ichernev)
+moment v2.29.1 - Iskren Ivov Chernev <iskren.chernev@gmail.com> (https://github.com/ichernev)
 https://github.com/moment/moment.git
 --------------------------------------------------------------------------------
 
@@ -997,35 +1107,6 @@ git+https://github.com/FezVrasta/popper.js.git
 MIT
 
 --------------------------------------------------------------------------------
-process v0.11.10 - Roman Shtylman <shtylman@gmail.com>
-git://github.com/shtylman/node-process.git
---------------------------------------------------------------------------------
-
-(The MIT License)
-
-Copyright (c) 2013 Roman Shtylman <shtylman@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
---------------------------------------------------------------------------------
 prop-types v15.7.2
 facebook/prop-types
 --------------------------------------------------------------------------------
@@ -1054,7 +1135,7 @@ SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-react v16.13.1
+react v17.0.1
 https://github.com/facebook/react.git
 --------------------------------------------------------------------------------
 
@@ -1082,7 +1163,7 @@ SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-react-dom v16.13.1
+react-dom v17.0.1
 https://github.com/facebook/react.git
 --------------------------------------------------------------------------------
 
@@ -1193,7 +1274,7 @@ SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-react-side-effect v2.1.0 - Dan Abramov <dan.abramov@me.com> (http://github.com/gaearon)
+react-side-effect v2.1.1 - Dan Abramov <dan.abramov@me.com> (http://github.com/gaearon)
 https://github.com/gaearon/react-side-effect.git
 --------------------------------------------------------------------------------
 
@@ -1260,7 +1341,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 --------------------------------------------------------------------------------
-scheduler v0.19.1
+scheduler v0.20.1
 https://github.com/facebook/react.git
 --------------------------------------------------------------------------------
 
@@ -1347,7 +1428,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 --------------------------------------------------------------------------------
-styled-components v5.2.0 - Glen Maddern
+styled-components v5.2.1 - Glen Maddern
 git+https://github.com/styled-components/styled-components.git
 --------------------------------------------------------------------------------
 
@@ -1381,7 +1462,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 --------------------------------------------------------------------------------
-vis-data v7.0.0
+vis-data v7.1.1
 https://github.com/visjs/vis-data.git
 --------------------------------------------------------------------------------
 
@@ -1564,7 +1645,7 @@ END OF TERMS AND CONDITIONS
 
 
 --------------------------------------------------------------------------------
-vis-network v8.3.2
+vis-network v8.5.3
 https://github.com/visjs/vis-network.git
 --------------------------------------------------------------------------------
 
@@ -1744,32 +1825,5 @@ incurred by, or claims asserted against, such Contributor by reason
 of your accepting any such warranty or additional liability.
 
 END OF TERMS AND CONDITIONS
-
-
---------------------------------------------------------------------------------
-webpack v4.44.2 - Tobias Koppers @sokra
-https://github.com/webpack/webpack.git
---------------------------------------------------------------------------------
-
-Copyright JS Foundation and other contributors
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
