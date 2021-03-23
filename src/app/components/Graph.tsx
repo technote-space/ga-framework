@@ -1,5 +1,7 @@
-import React, {useRef, useEffect, useMemo, FC} from 'react';
-import {Network, Node, Edge} from 'vis-network';
+import type {FC} from 'react';
+import type {Node, Edge} from 'vis-network';
+import React, {memo, useRef, useEffect} from 'react';
+import {Network} from 'vis-network';
 import {makeStyles, createStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => createStyles({
@@ -14,7 +16,7 @@ const Graph: FC<{
   edges: Array<Edge>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options?: any;
-}> = ({nodes, edges, options}) => {
+}> = memo(({nodes, edges, options}) => {
   const classes   = useStyles();
   const container = useRef<HTMLDivElement>(null);
 
@@ -33,7 +35,8 @@ const Graph: FC<{
     );
   }, [nodes, edges, options]);
 
-  return useMemo(() => <div className={classes.container} ref={container}/>, [classes]);
-};
+  return <div className={classes.container} ref={container}/>;
+});
 
+Graph.displayName = 'Graph';
 export default Graph;

@@ -1,9 +1,10 @@
-import React, {FC} from 'react';
-import {StoreContextProvider} from './app/Store';
-import App from './app/App';
-import {AppOptions} from './types';
-import useTheme from './app/hooks/useTheme';
-import {SnackbarWrapper} from './app/components';
+import type {FC} from 'react';
+import type {AppOptions} from './types';
+import React from 'react';
+import {StoreContextProvider} from '@/Store';
+import App from '@/App';
+import useTheme from '@/hooks/useTheme';
+import {SnackbarWrapper} from '@/components';
 
 export const GaFramework: FC<{ options: AppOptions }> = ({options}) => <StoreContextProvider options={options}>
   <SnackbarWrapper/>
@@ -11,8 +12,8 @@ export const GaFramework: FC<{ options: AppOptions }> = ({options}) => <StoreCon
 </StoreContextProvider>;
 
 export {AppOptions};
-export {IGeneticAlgorithm, GeneticAlgorithmBase} from './app/logic/Algorithm';
-export {useStoreContext, useDispatchContext} from './app/Store';
-export {Graph, List, Timeline} from './app/components';
-export {getProcessContext, updateStatus, reloadWorker, setNotice, setError, closeNotice} from './app/common';
+export {IGeneticAlgorithm, GeneticAlgorithmBase} from '@/logic/Algorithm';
+export {useStoreContext, useDispatchContext} from '@/Store';
+export {Graph, List, Timeline} from '@/components';
+export {getProcessContext, updateStatus, reloadWorker, setNotice, setError, closeNotice} from '@/common';
 export {useTheme};

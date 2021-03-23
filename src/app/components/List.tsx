@@ -1,6 +1,8 @@
 /* eslint-disable no-magic-numbers */
-import React, {useMemo, useEffect, FC, ElementType, ReactElement} from 'react';
-import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
+import type {FC, ElementType, ReactElement} from 'react';
+import type {Theme} from '@material-ui/core/styles';
+import React, {memo, useEffect} from 'react';
+import {makeStyles, createStyles} from '@material-ui/core/styles';
 import {
   Table,
   TableBody,
@@ -19,7 +21,7 @@ import {
   KeyboardArrowRight,
   LastPage as LastPageIcon,
 } from '@material-ui/icons';
-import {useStoreContext, useDispatchContext} from '../Store';
+import {useStoreContext, useDispatchContext} from '@/Store';
 
 const useStyles1 = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -88,7 +90,7 @@ const List: FC<{
   render: (any, index: number) => ReactElement;
   rowsPerPageOptions?: Array<number>;
   defaultPerPage?: number;
-}> = ({population, render, rowsPerPageOptions, defaultPerPage}) => {
+}> = memo(({population, render, rowsPerPageOptions, defaultPerPage}) => {
   const classes                                                 = useStyles2();
   const {store: {pagination: {page, rowsPerPage, initialized}}} = useStoreContext();
   const {dispatch}                                              = useDispatchContext();
@@ -116,44 +118,42 @@ const List: FC<{
   }, []);
 
 
-  return useMemo(
-    () => <TableContainer component={Paper}>
-      <Table className={classes.table}>
-        <TableBody>
-          {(rowsPerPage > 0 ? population.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : population).map((row, index) => (
-            <TableRow key={index}>
-              {render(row, index)}
-            </TableRow>
-          ))}
-
-          {emptyRows > 0 && (
-            <TableRow style={{height: 53 * emptyRows}}>
-              <TableCell colSpan={6}/>
-            </TableRow>
-          )}
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={rowsPerPageOptions ?? [10, 30, 50, 100]}
-              colSpan={3}
-              count={population.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: {'aria-label': 'rows per page'},
-                native: true,
-              }}
-              onChangePage={handleChangePage}
-              onChangeRowsPerPage={handleChangeRowsPerPage}
-              ActionsComponent={TablePaginationActions}
-            />
+  return <TableContainer component={Paper}>
+    <Table className={classes.table}>
+      <TableBody>
+        {(rowsPerPage > 0 ? population.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : population).map((row, index) => (
+          <TableRow key={index}>
+            {render(row, index)}
           </TableRow>
-        </TableFooter>
-      </Table>
-    </TableContainer>
-    , [page, rowsPerPage, population, rowsPerPageOptions, classes],
-  );
-};
+        ))}
 
+        {emptyRows > 0 && (
+          <TableRow style={{height: 53 * emptyRows}}>
+            <TableCell colSpan={6}/>
+          </TableRow>
+        )}
+      </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TablePagination
+            rowsPerPageOptions={rowsPerPageOptions ?? [10, 30, 50, 100]}
+            colSpan={3}
+            count={population.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            SelectProps={{
+              inputProps: {'aria-label': 'rows per page'},
+              native: true,
+            }}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+            ActionsComponent={TablePaginationActions}
+          />
+        </TableRow>
+      </TableFooter>
+    </Table>
+  </TableContainer>;
+});
+
+List.displayName = 'List';
 export default List;

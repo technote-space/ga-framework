@@ -1,8 +1,9 @@
-import React, {useRef, useState, useEffect, useMemo, FC} from 'react';
+import type {FC} from 'react';
+import React, {memo, useRef, useState, useEffect} from 'react';
 import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
 import Chart, {ChartPoint} from 'chart.js';
-import useTheme from '../hooks/useTheme';
-import {useStoreContext} from '../Store';
+import useTheme from '@/hooks/useTheme';
+import {useStoreContext} from '@/Store';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const Timeline: FC<{
   data: Array<ChartPoint>;
-}> = ({data}) => {
+}> = memo(({data}) => {
   const classes               = useStyles();
   const [chart, setChart]     = useState<Chart | null>(null);
   const container             = useRef<HTMLCanvasElement>(null);
@@ -80,7 +81,8 @@ const Timeline: FC<{
     ));
   }, [data]);
 
-  return useMemo(() => <canvas className={classes.root} ref={container}/>, [classes]);
-};
+  return <canvas className={classes.root} ref={container}/>;
+});
 
+Timeline.displayName = 'Timeline';
 export default Timeline;
