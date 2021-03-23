@@ -2,8 +2,8 @@ import type {FC} from 'react';
 import React, {memo, useRef, useState, useEffect} from 'react';
 import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
 import Chart, {ChartPoint} from 'chart.js';
-import useTheme from '../hooks/useTheme';
-import {useStoreContext} from '../Store';
+import useTheme from '@/hooks/useTheme';
+import {useStoreContext} from '@/Store';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {

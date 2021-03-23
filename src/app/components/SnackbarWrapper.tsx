@@ -3,8 +3,8 @@ import React, {memo, useCallback} from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import {makeStyles, createStyles} from '@material-ui/core/styles';
 import SnackbarContentWrapper from './SnackbarContentWrapper';
-import {useDispatchContext, useStoreContext} from '../Store';
-import {closeNotice} from '../common';
+import {useDispatchContext, useStoreContext} from '@/Store';
+import {closeNotice} from '@/common';
 
 const useStyles = makeStyles(() => createStyles({
   snackbar: {},

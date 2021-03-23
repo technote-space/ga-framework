@@ -1,5 +1,5 @@
 import type {FC} from 'react';
-import type {AppOptions} from '../../types';
+import type {AppOptions} from '$/types';
 import type {Theme} from '@material-ui/core/styles';
 import React, {memo, useMemo, useState, useEffect} from 'react';
 import {makeStyles, createStyles} from '@material-ui/core/styles';
@@ -14,7 +14,7 @@ import {
 } from '@material-ui/core';
 import {useSidebar} from '@mui-treasury/layout/hooks';
 import clsx from 'clsx';
-import {useStoreContext, useDispatchContext} from '../Store';
+import {useStoreContext, useDispatchContext} from '@/Store';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   list: {

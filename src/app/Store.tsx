@@ -1,5 +1,5 @@
 import type {FC} from 'react';
-import type {AppOptions} from '../types';
+import type {AppOptions} from '$/types';
 import React, {memo, useReducer, createContext, useContext, useCallback, useEffect} from 'react';
 import {getProcessContext} from './common';
 

@@ -1,10 +1,10 @@
 import type {FC} from 'react';
+import type {AppOptions} from '$/types';
 import React, {memo, useMemo} from 'react';
 import {makeStyles, createStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import {AppOptions} from '../../types';
-import {getTitle} from '../common';
-import {useStoreContext} from '../Store';
+import {getTitle} from '@/common';
+import {useStoreContext} from '@/Store';
 
 const useStyles = makeStyles(({breakpoints}) => createStyles({
   header: {

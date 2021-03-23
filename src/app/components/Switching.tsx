@@ -1,8 +1,8 @@
 import type {ReactElement, FC} from 'react';
 import React, {memo, useMemo, useState, useEffect} from 'react';
-import {useStoreContext, useDispatchContext} from '../Store';
-import {LoadingAnimation} from '../components';
-import {AppOptions} from '../../types';
+import {useStoreContext, useDispatchContext} from '@/Store';
+import {LoadingAnimation} from '@/components';
+import {AppOptions} from '$/types';
 
 const Switching: FC<{
   options: AppOptions;

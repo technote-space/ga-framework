@@ -1,5 +1,5 @@
 import type {FC} from 'react';
-import type {AppOptions} from '../types';
+import type {AppOptions} from '$/types';
 import type {StatusResult} from '@technote-space/worker-controller';
 import React, {memo, useMemo, useEffect} from 'react';
 import {Helmet} from 'react-helmet';

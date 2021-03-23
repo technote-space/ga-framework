@@ -29,7 +29,7 @@
     "src/public"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm_config_yes=true npx tsc-alias",
     "lint": "eslint './src/**/*.{ts,tsx}' --cache",
     "lint:fix": "eslint --fix './src/**/*.{ts,tsx}'",
     "test": "yarn lint",

@@ -21,7 +21,7 @@ import {
   KeyboardArrowRight,
   LastPage as LastPageIcon,
 } from '@material-ui/icons';
-import {useStoreContext, useDispatchContext} from '../Store';
+import {useStoreContext, useDispatchContext} from '@/Store';
 
 const useStyles1 = makeStyles((theme: Theme) => createStyles({
   root: {

@@ -2,8 +2,8 @@ import type {FC} from 'react';
 import React, {memo} from 'react';
 import {makeStyles, createStyles} from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import {Switching} from '../components';
-import {AppOptions} from '../../types';
+import {Switching} from '@/components';
+import {AppOptions} from '$/types';
 
 const useStyles = makeStyles(() => createStyles({
   root: {
