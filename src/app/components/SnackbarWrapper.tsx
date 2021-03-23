@@ -1,4 +1,5 @@
-import React, {FC, useMemo, useCallback} from 'react';
+import type {FC} from 'react';
+import React, {memo, useCallback} from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import {makeStyles, createStyles} from '@material-ui/core/styles';
 import SnackbarContentWrapper from './SnackbarContentWrapper';
@@ -10,7 +11,7 @@ const useStyles = makeStyles(() => createStyles({
   content: {},
 }));
 
-const SnackbarWrapper: FC = () => {
+const SnackbarWrapper: FC = memo(() => {
   const {store: {notice}} = useStoreContext();
   const {dispatch}        = useDispatchContext();
   const classes           = useStyles();
@@ -19,24 +20,24 @@ const SnackbarWrapper: FC = () => {
     closeNotice(dispatch);
   }, []);
 
-  return useMemo(() =>
-    <Snackbar
+  return <Snackbar
+    className={classes.content}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'center',
+    }}
+    open={notice.open}
+    autoHideDuration={6000}
+    onClose={handleClose}
+  >
+    <SnackbarContentWrapper
       className={classes.content}
-      anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'center',
-      }}
-      open={notice.open}
-      autoHideDuration={6000}
+      message={notice.message}
       onClose={handleClose}
-    >
-      <SnackbarContentWrapper
-        className={classes.content}
-        message={notice.message}
-        onClose={handleClose}
-        variant={notice.variant}
-      />
-    </Snackbar>, [notice, classes]);
-};
+      variant={notice.variant}
+    />
+  </Snackbar>;
+});
 
+SnackbarWrapper.displayName = 'SnackbarWrapper';
 export default SnackbarWrapper;

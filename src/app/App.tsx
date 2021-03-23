@@ -1,4 +1,7 @@
-import React, {useMemo, useEffect, FC} from 'react';
+import type {FC} from 'react';
+import type {AppOptions} from '../types';
+import type {StatusResult} from '@technote-space/worker-controller';
+import React, {memo, useMemo, useEffect} from 'react';
 import {Helmet} from 'react-helmet';
 import styled from 'styled-components';
 import LayoutBuilder, {
@@ -21,8 +24,7 @@ import {
   NavContentEx,
 } from './templates';
 import {useDispatchContext, useStoreContext} from './Store';
-import {AppOptions} from '../types';
-import {Controller, StatusResult} from '@technote-space/worker-controller';
+import {Controller} from '@technote-space/worker-controller';
 import {getProcessContext, getTitle, updateStatus} from './common';
 
 const useStyles = makeStyles(() => createStyles({
@@ -69,7 +71,7 @@ const Content        = getContent(styled);
 
 const App: FC<{
   options: AppOptions;
-}> = ({options}: { options: AppOptions }) => {
+}> = memo(({options}: { options: AppOptions }) => {
   const {store: {themeColor, reloadWorker}, store} = useStoreContext();
   const {dispatch}                                 = useDispatchContext();
   const themeObject                                = useTheme(themeColor);
@@ -120,6 +122,7 @@ const App: FC<{
       {content}
     </Root>
   ), [title, classes, theme]);
-};
+});
 
+App.displayName = 'App';
 export default App;

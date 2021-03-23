@@ -1,5 +1,6 @@
+import type {Theme} from '@material-ui/core/styles';
 import {useMemo} from 'react';
-import {createMuiTheme, Theme} from '@material-ui/core/styles';
+import {createMuiTheme} from '@material-ui/core/styles';
 import {blue, grey, pink} from '@material-ui/core/colors';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 

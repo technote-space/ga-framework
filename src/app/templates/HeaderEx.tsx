@@ -1,4 +1,5 @@
-import React, {FC, useMemo} from 'react';
+import type {FC} from 'react';
+import React, {memo, useMemo} from 'react';
 import {makeStyles, createStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import {AppOptions} from '../../types';
@@ -18,7 +19,7 @@ const useStyles = makeStyles(({breakpoints}) => createStyles({
 
 const HeaderEx: FC<{
   options: AppOptions;
-}> = ({options}) => {
+}> = memo(({options}) => {
   const {store} = useStoreContext();
   const classes = useStyles();
 
@@ -32,6 +33,7 @@ const HeaderEx: FC<{
     {titleView}
     {afterHeaderTitle}
   </>;
-};
+});
 
+HeaderEx.displayName = 'HeaderEx';
 export default HeaderEx;

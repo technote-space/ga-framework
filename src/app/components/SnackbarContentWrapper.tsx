@@ -1,4 +1,6 @@
-import React, {FC, MouseEventHandler} from 'react';
+import type {FC, MouseEventHandler} from 'react';
+import type {Theme} from '@material-ui/core/styles';
+import React, {memo} from 'react';
 import clsx from 'clsx';
 import {
   CheckCircle as CheckCircleIcon,
@@ -10,7 +12,7 @@ import {
 import {amber, green} from '@material-ui/core/colors';
 import IconButton from '@material-ui/core/IconButton';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
-import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
+import {makeStyles, createStyles} from '@material-ui/core/styles';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -53,7 +55,7 @@ const SnackbarContentWrapper: FC<{
   variant: 'error' | 'info' | 'success' | 'warning';
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   other?: any;
-}> = ({className, message, onClose, variant, ...other}) => {
+}> = memo(({className, message, onClose, variant, ...other}) => {
   const Icon    = variantIcon[variant];
   const classes = useStyles();
 
@@ -75,6 +77,7 @@ const SnackbarContentWrapper: FC<{
       {...other}
     />
   );
-};
+});
 
+SnackbarContentWrapper.displayName = 'SnackbarContentWrapper';
 export default SnackbarContentWrapper;

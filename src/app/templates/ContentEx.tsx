@@ -1,4 +1,5 @@
-import React, {FC, useMemo} from 'react';
+import type {FC} from 'react';
+import React, {memo} from 'react';
 import {makeStyles, createStyles} from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import {Switching} from '../components';
@@ -13,10 +14,13 @@ const useStyles = makeStyles(() => createStyles({
 
 const ContentEx: FC<{
   options: AppOptions;
-}> = ({options}) => {
+}> = memo(({options}) => {
   const classes = useStyles();
 
-  return useMemo(() => <Box className={classes.root}><Switching options={options}/></Box>, [classes]);
-};
+  return <Box className={classes.root}>
+    <Switching options={options}/>
+  </Box>;
+});
 
+ContentEx.displayName = 'ContentEx';
 export default ContentEx;

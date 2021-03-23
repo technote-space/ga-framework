@@ -1,7 +1,8 @@
-import React, {FC} from 'react';
+import type {FC} from 'react';
+import type {AppOptions} from './types';
+import React from 'react';
 import {StoreContextProvider} from './app/Store';
 import App from './app/App';
-import {AppOptions} from './types';
 import useTheme from './app/hooks/useTheme';
 import {SnackbarWrapper} from './app/components';
 

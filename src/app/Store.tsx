@@ -1,5 +1,6 @@
-import React, {useReducer, createContext, useContext, useCallback, useMemo, useEffect, FC} from 'react';
-import {AppOptions} from '../types';
+import type {FC} from 'react';
+import type {AppOptions} from '../types';
+import React, {memo, useReducer, createContext, useContext, useCallback, useEffect} from 'react';
 import {getProcessContext} from './common';
 
 const StoreContext           = createContext({});
@@ -69,9 +70,9 @@ const resultReducer = (store, result) => {
   };
 };
 
-export const StoreContextProvider: FC<{
+const StoreContextProvider: FC<{
   options: AppOptions;
-}> = ({children, options}) => {
+}>                               = memo(({children, options}) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getReducer        = useCallback((store, action): any => {
     switch (action.type) {
@@ -142,12 +143,11 @@ export const StoreContextProvider: FC<{
     onReloadNeeded().then();
   }, []);
 
-  return useMemo(
-    () =>
-      <StoreContext.Provider value={{store}}>
-        <DispatchContext.Provider value={{dispatch, onReloadNeeded}}>
-          {children}
-        </DispatchContext.Provider>
-      </StoreContext.Provider>
-    , [store]);
-};
+  return <StoreContext.Provider value={{store}}>
+    <DispatchContext.Provider value={{dispatch, onReloadNeeded}}>
+      {children}
+    </DispatchContext.Provider>
+  </StoreContext.Provider>;
+});
+StoreContextProvider.displayName = 'StoreContextProvider';
+export {StoreContextProvider};

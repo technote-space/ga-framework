@@ -1,5 +1,8 @@
-import React, {FC, useMemo, useState, useEffect} from 'react';
-import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
+import type {FC} from 'react';
+import type {AppOptions} from '../../types';
+import type {Theme} from '@material-ui/core/styles';
+import React, {memo, useMemo, useState, useEffect} from 'react';
+import {makeStyles, createStyles} from '@material-ui/core/styles';
 import {grey, orange} from '@material-ui/core/colors';
 import {
   Icon,
@@ -12,7 +15,6 @@ import {
 import {useSidebar} from '@mui-treasury/layout/hooks';
 import clsx from 'clsx';
 import {useStoreContext, useDispatchContext} from '../Store';
-import {AppOptions} from '../../types';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   list: {
@@ -41,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const NavContentEx: FC<{
   options: AppOptions;
-}> = ({options}) => {
+}> = memo(({options}) => {
   const {store: {page, status, worker, control}, store} = useStoreContext();
   const {dispatch}                                      = useDispatchContext();
   const classes                                         = useStyles();
@@ -105,6 +107,7 @@ const NavContentEx: FC<{
     {controller}
     {afterMenu}
   </>;
-};
+});
 
+NavContentEx.displayName = 'NavContentEx';
 export default NavContentEx;
