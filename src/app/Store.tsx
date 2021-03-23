@@ -70,68 +70,66 @@ const resultReducer = (store, result) => {
   };
 };
 
+const reducerActions             = {
+  PAGE: (store, action) => ({...store, page: action.page}),
+  THEME_COLOR: (store, action) => ({...store, themeColor: action.themeColor}),
+  WORKER: (store, action) => ({...store, worker: action.worker}),
+  UPDATE_STATUS: (store, action) => {
+    if (store.status === 'disabled') {
+      return store;
+    }
+
+    return {...store, status: action.result.status};
+  },
+  RELOAD_WORKER: (store) => ({...store, reloadWorker: !store.reloadWorker}),
+  SET_NOTICE: (store, action) => ({...store, notice: {...store.notice, ...{open: true, variant: 'success'}, ...action.notice}}),
+  SET_ERROR: (store, action) => ({...store, notice: {...store.notice, ...{open: true, variant: 'error'}, ...action.notice}}),
+  CLOSE_NOTICE: (store) => ({...store, notice: {...store.notice, ...{open: false}}}),
+  PAGINATION_INITIALIZED: (store) => ({
+    ...store,
+    pagination: {
+      ...store.pagination,
+      initialized: true,
+    },
+  }),
+  PAGINATION_PAGE: (store, action) => ({
+    ...store,
+    pagination: {
+      ...store.pagination,
+      page: action.page,
+    },
+  }),
+  PAGINATION_PER_PAGE: (store, action) => (
+    {
+      ...store,
+      pagination: {
+        ...store.pagination,
+        rowsPerPage: action.rowsPerPage,
+      },
+    }
+  ),
+  RESULT: (store, action, options) => {
+    store = resultReducer(store, action.result);
+    if (options.store?.reducer) {
+      return options.store.reducer(store, action);
+    }
+    return store;
+  },
+};
 const StoreContextProvider: FC<{
   options: AppOptions;
 }>                               = memo(({children, options}) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getReducer        = useCallback((store, action): any => {
-    switch (action.type) {
-      case 'PAGE':
-        return {...store, page: action.page};
-      case 'THEME_COLOR':
-        return {...store, themeColor: action.themeColor};
-      case 'WORKER':
-        return {...store, worker: action.worker};
-      case 'UPDATE_STATUS':
-        if (store.status === 'disabled') {
-          return store;
-        }
-
-        return {...store, status: action.result.status};
-      case 'RELOAD_WORKER':
-        return {...store, reloadWorker: !store.reloadWorker};
-      case 'SET_NOTICE':
-        return {...store, notice: {...store.notice, ...{open: true, variant: 'success'}, ...action.notice}};
-      case 'SET_ERROR':
-        return {...store, notice: {...store.notice, ...{open: true, variant: 'error'}, ...action.notice}};
-      case 'CLOSE_NOTICE':
-        return {...store, notice: {...store.notice, ...{open: false}}};
-      case 'PAGINATION_INITIALIZED':
-        return {
-          ...store,
-          pagination: {
-            ...store.pagination,
-            initialized: true,
-          },
-        };
-      case 'PAGINATION_PAGE':
-        return {
-          ...store,
-          pagination: {
-            ...store.pagination,
-            page: action.page,
-          },
-        };
-      case 'PAGINATION_PER_PAGE':
-        return {
-          ...store,
-          pagination: {
-            ...store.pagination,
-            rowsPerPage: action.rowsPerPage,
-          },
-        };
-      case 'RESULT':
-      default:
-        if (action.type === 'RESULT') {
-          store = resultReducer(store, action.result);
-        }
-
-        if (options.store?.reducer) {
-          return options.store.reducer(store, action);
-        }
-
-        return store;
+    if (action.type in reducerActions) {
+      return reducerActions[action.type](store, action, options);
     }
+
+    if (options.store?.reducer) {
+      return options.store.reducer(store, action);
+    }
+
+    return store;
   }, [options]);
   const [store, dispatch] = useReducer(getReducer, getInitialState(options));
 
