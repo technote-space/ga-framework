@@ -44,8 +44,8 @@
     "@material-ui/icons": "^4.11.2",
     "@mui-treasury/layout": "^4.5.0",
     "@technote-space/genetic-algorithms-js": "^0.8.18",
-    "@technote-space/worker-controller": "^0.5.32",
-    "chart.js": "^3.1.0",
+    "@technote-space/worker-controller": "^0.5.33",
+    "chart.js": "^3.1.1",
     "clsx": "^1.1.1",
     "keycharm": "^0.4.0",
     "moment": "^2.29.1",
@@ -58,7 +58,7 @@
     "vis-util": "^5.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.15",
+    "@babel/core": "^7.13.16",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
     "@babel/plugin-transform-react-inline-elements": "^7.12.13",
@@ -69,7 +69,7 @@
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
     "@types/chart.js": "^2.9.32",
-    "@types/node": "^14.14.37",
+    "@types/node": "^14.14.41",
     "@types/react-helmet": "^6.1.1",
     "@types/styled-components": "^5.1.9",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
@@ -85,7 +85,7 @@
     "lint-staged": "^10.5.4",
     "pinst": "^2.1.6",
     "typescript": "^4.2.4",
-    "webpack": "^5.32.0"
+    "webpack": "^5.34.0"
   },
   "publishConfig": {
     "access": "public"
