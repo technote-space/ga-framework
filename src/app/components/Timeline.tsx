@@ -1,7 +1,8 @@
 import type {FC} from 'react';
+import type {ScatterDataPoint} from 'chart.js';
 import React, {memo, useRef, useState, useEffect} from 'react';
 import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
-import Chart, {ChartPoint} from 'chart.js';
+import {Chart} from 'chart.js';
 import useTheme from '@/hooks/useTheme';
 import {useStoreContext} from '@/Store';
 
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 }));
 
 const Timeline: FC<{
-  data: Array<ChartPoint>;
+  data: Array<ScatterDataPoint>;
 }> = memo(({data}) => {
   const classes               = useStyles();
   const [chart, setChart]     = useState<Chart | null>(null);
@@ -36,7 +37,7 @@ const Timeline: FC<{
         data: {
           datasets: [
             {
-              lineTension: 0.1,
+              tension: 0.1,
               backgroundColor: 'rgba(75, 192, 192, 0.4)',
               borderColor: 'rgba(75, 192, 192, 1)',
               label: 'Fitness',
@@ -47,33 +48,35 @@ const Timeline: FC<{
           labels: [...Array(101).keys()],
         },
         options: {
-          legend: {display: false},
+          plugins: {
+            legend: {display: false},
+          },
           scales: {
-            xAxes: [
-              {
-                type: 'linear',
-                ticks: {
-                  min: 0, max: 100, stepSize: 10,
-                  fontColor: themeObject.palette.primary.contrastText,
-                  padding: 5,
-                },
-                gridLines: {
-                  color: themeObject.palette.secondary.contrastText,
-                },
+            x: {
+              type: 'linear',
+              min: 0,
+              max: 100,
+              ticks: {
+                stepSize: 10,
+                color: themeObject.palette.primary.contrastText,
+                padding: 5,
               },
-            ],
-            yAxes: [
-              {
-                ticks: {
-                  min: 0, max: 1.1, stepSize: 0.1,
-                  fontColor: themeObject.palette.primary.contrastText,
-                  padding: 5,
-                },
-                gridLines: {
-                  color: themeObject.palette.secondary.contrastText,
-                },
+              grid: {
+                color: themeObject.palette.secondary.contrastText,
               },
-            ],
+            },
+            y: {
+              min: 0,
+              max: 1.1,
+              ticks: {
+                stepSize: 0.1,
+                color: themeObject.palette.primary.contrastText,
+                padding: 5,
+              },
+              grid: {
+                color: themeObject.palette.secondary.contrastText,
+              },
+            },
           },
           animation: undefined,
         },
