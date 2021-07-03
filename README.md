@@ -5,7 +5,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/technote-space/ga-framework/badge)](https://www.codefactor.io/repository/github/technote-space/ga-framework)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/technote-space/ga-framework/blob/master/LICENSE)
 
-GA Framework
+Genetic Algorithm Framework
 
 ## Table of Contents
 

@@ -23,9 +23,6 @@ const Timeline: FC<{
   const themeObject           = useTheme(themeColor);
 
   useEffect(() => {
-    if (chart) {
-      chart.destroy();
-    }
     if (!container.current) {
       return;
     }
@@ -40,6 +37,8 @@ const Timeline: FC<{
               tension: 0.1,
               backgroundColor: 'rgba(75, 192, 192, 0.4)',
               borderColor: 'rgba(75, 192, 192, 1)',
+              fill: true,
+              animation: false,
               label: 'Fitness',
               data,
             },
@@ -82,6 +81,13 @@ const Timeline: FC<{
         },
       },
     ));
+  }, []);
+
+  useEffect(() => {
+    if (chart) {
+      chart.data.datasets[0].data = data;
+      chart.update();
+    }
   }, [data]);
 
   return <canvas className={classes.root} ref={container}/>;
