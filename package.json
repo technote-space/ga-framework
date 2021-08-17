@@ -44,7 +44,7 @@
     "@material-ui/icons": "^4.11.2",
     "@mui-treasury/layout": "^4.5.0",
     "@technote-space/genetic-algorithms-js": "^0.8.23",
-    "@technote-space/worker-controller": "^0.5.40",
+    "@technote-space/worker-controller": "^0.5.41",
     "chart.js": "^3.5.0",
     "clsx": "^1.1.1",
     "keycharm": "^0.4.0",
@@ -68,11 +68,11 @@
     "@babel/preset-typescript": "^7.15.0",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "@types/node": "^16.4.13",
+    "@types/node": "^16.6.1",
     "@types/react-helmet": "^6.1.2",
     "@types/styled-components": "^5.1.12",
-    "@typescript-eslint/eslint-plugin": "^4.29.1",
-    "@typescript-eslint/parser": "^4.29.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
     "babel-plugin-react-html-attrs": "^3.0.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "copy-webpack-plugin": "^9.0.1",
@@ -84,7 +84,7 @@
     "lint-staged": "^11.1.2",
     "pinst": "^2.1.6",
     "typescript": "^4.3.5",
-    "webpack": "^5.49.0"
+    "webpack": "^5.50.0"
   },
   "publishConfig": {
     "access": "public"
