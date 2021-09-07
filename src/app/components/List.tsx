@@ -96,10 +96,10 @@ const List: FC<{
   const {dispatch}                                              = useDispatchContext();
 
   const emptyRows               = rowsPerPage - Math.min(rowsPerPage, population.length - page * rowsPerPage);
-  const handleChangePage        = (event, newPage) => {
+  const handlePageChange        = (event, newPage) => {
     dispatch({type: 'PAGINATION_PAGE', page: newPage});
   };
-  const handleChangeRowsPerPage = (event) => {
+  const handleRowsPerPageChange = (event) => {
     dispatch({type: 'PAGINATION_PER_PAGE', rowsPerPage: parseInt(event.target.value, 10)});
     dispatch({type: 'PAGINATION_PAGE', page: 0});
   };
@@ -145,8 +145,8 @@ const List: FC<{
               inputProps: {'aria-label': 'rows per page'},
               native: true,
             }}
-            onChangePage={handleChangePage}
-            onChangeRowsPerPage={handleChangeRowsPerPage}
+            onPageChange={handlePageChange}
+            onRowsPerPageChange={handleRowsPerPageChange}
             ActionsComponent={TablePaginationActions}
           />
         </TableRow>
