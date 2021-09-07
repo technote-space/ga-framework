@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/%40technote-space%2Fga-framework.svg)](https://badge.fury.io/js/%40technote-space%2Fga-framework)
 [![CI Status](https://github.com/technote-space/ga-framework/workflows/CI/badge.svg)](https://github.com/technote-space/ga-framework/actions)
 [![CodeFactor](https://www.codefactor.io/repository/github/technote-space/ga-framework/badge)](https://www.codefactor.io/repository/github/technote-space/ga-framework)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/technote-space/ga-framework/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/technote-space/ga-framework/blob/main/LICENSE)
 
 Genetic Algorithm Framework
 
