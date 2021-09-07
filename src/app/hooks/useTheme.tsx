@@ -1,6 +1,6 @@
 import type {Theme} from '@material-ui/core/styles';
 import {useMemo} from 'react';
-import {createMuiTheme} from '@material-ui/core/styles';
+import {createTheme} from '@material-ui/core/styles';
 import {blue, grey, pink} from '@material-ui/core/colors';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
@@ -12,7 +12,7 @@ const useTheme = (themeColor?: 'light' | 'dark'): Theme => {
   const fgColor2        = colorMode === 'dark' ? grey[600] : grey[300];
 
   return useMemo(() =>
-    createMuiTheme({
+    createTheme({
       props: {
         MuiContainer: {},
         MuiButton: {
