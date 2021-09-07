@@ -16,7 +16,7 @@ import {
   Toolbar,
   CssBaseline,
 } from '@material-ui/core';
-import {createMuiTheme, responsiveFontSizes, makeStyles, createStyles} from '@material-ui/core/styles';
+import {createTheme, responsiveFontSizes, makeStyles, createStyles} from '@material-ui/core/styles';
 import {useTheme} from './hooks';
 import {
   ContentEx,
@@ -75,7 +75,7 @@ const App: FC<{
   const {store: {themeColor, reloadWorker}, store} = useStoreContext();
   const {dispatch}                                 = useDispatchContext();
   const themeObject                                = useTheme(themeColor);
-  const theme                                      = responsiveFontSizes(createMuiTheme(themeObject));
+  const theme                                      = responsiveFontSizes(createTheme(themeObject));
   const classes                                    = useStyles({theme});
 
   const title       = useMemo(() => getTitle(options, store), [store]);
