@@ -1,6 +1,6 @@
 {
   "name": "@technote-space/ga-framework",
-  "version": "0.14.20",
+  "version": "0.14.21",
   "description": "GA Framework",
   "keywords": [
     "genetic algorithm"
@@ -30,13 +30,13 @@
   ],
   "scripts": {
     "build": "tsc && npm_config_yes=true npx tsc-alias",
+    "postinstall": "[ -n \"$CI\" ] || [ ! -f node_modules/.bin/husky ] || husky install",
     "lint": "eslint './src/**/*.{ts,tsx}' --cache",
     "lint:fix": "eslint --fix './src/**/*.{ts,tsx}'",
-    "test": "yarn lint",
-    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit",
-    "postinstall": "[ -n \"$CI\" ] || [ ! -f node_modules/.bin/husky ] || husky install",
     "prepublishOnly": "[ -n \"$CI\" ] || [ ! -f node_modules/.bin/pinst ] || pinst --disable",
-    "postpublish": "[ -n \"$CI\" ] || [ ! -f node_modules/.bin/pinst ] || pinst --enable"
+    "postpublish": "[ -n \"$CI\" ] || [ ! -f node_modules/.bin/pinst ] || pinst --enable",
+    "test": "yarn lint",
+    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit"
   },
   "dependencies": {
     "@egjs/hammerjs": "^2.0.17",
