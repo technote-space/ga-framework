@@ -1,8 +1,8 @@
-import type {Theme} from '@material-ui/core/styles';
-import {useMemo} from 'react';
-import {createTheme} from '@material-ui/core/styles';
-import {blue, grey, pink} from '@material-ui/core/colors';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import type { Theme } from '@mui/material/styles';
+import { useMemo } from 'react';
+import { createTheme } from '@mui/material/styles';
+import { blue, grey, pink } from '@mui/material/colors';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const useTheme = (themeColor?: 'light' | 'dark'): Theme => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -13,40 +13,150 @@ const useTheme = (themeColor?: 'light' | 'dark'): Theme => {
 
   return useMemo(() =>
     createTheme({
-      props: {
-        MuiContainer: {},
+      components: {
+        MuiContainer: {
+          styleOverrides: {
+            root: {
+              marginTop: 80,
+            },
+          },
+        },
         MuiButton: {
-          color: 'primary',
-          variant: 'contained',
+          defaultProps: {
+            color: 'primary',
+            variant: 'contained',
+          },
+          styleOverrides: {
+            root: {
+              textTransform: 'none',
+              color: 'white',
+            },
+            text: {
+              fontSize: '1rem',
+            },
+          },
         },
         MuiBadge: {
-          color: 'secondary',
+          defaultProps: {
+            color: 'secondary',
+          },
         },
         MuiTextField: {
-          variant: 'outlined',
+          defaultProps: {
+            variant: 'outlined',
+          },
         },
         MuiCheckbox: {
-          color: 'primary',
+          defaultProps: {
+            color: 'primary',
+          },
         },
         MuiRadio: {
-          color: 'primary',
+          defaultProps: {
+            color: 'primary',
+          },
         },
         MuiSwitch: {
-          color: 'primary',
+          defaultProps: {
+            color: 'primary',
+          },
         },
         MuiList: {
-          dense: false,
+          defaultProps: {
+            dense: false,
+          },
         },
         MuiTable: {
-          size: 'small',
+          defaultProps: {
+            size: 'small',
+          },
         },
         MuiLink: {
-          color: 'textPrimary',
-          underline: 'always',
+          defaultProps: {
+            color: 'textPrimary',
+            underline: 'always',
+          },
+        },
+        MuiAppBar: {
+          styleOverrides: {
+            colorPrimary: {
+              backgroundColor: bgColor,
+            },
+          },
+        },
+        MuiPaper: {
+          styleOverrides: {
+            root: {
+              backgroundColor: bgColor,
+            },
+          },
+        },
+        MuiTab: {
+          styleOverrides: {
+            textColorInherit: {
+              fontSize: '1rem',
+            },
+          },
+        },
+        MuiInputLabel: {
+          styleOverrides: {
+            root: {
+              '&$focused': {
+                fontWeight: 'bold',
+              },
+            },
+          },
+        },
+        MuiOutlinedInput: {
+          styleOverrides: {
+            input: {
+              WebkitBoxShadow: '0 0 0 100px ${bgColor} inset',
+            },
+          },
+        },
+        MuiFormLabel: {
+          styleOverrides: {
+            root: {
+              '&$focused': {
+                fontWeight: 'bold',
+              },
+            },
+          },
+        },
+        MuiFormControl: {
+          styleOverrides: {
+            root: {
+              width: '-webkit-fill-available',
+            },
+          },
+        },
+        MuiListItemText: {
+          styleOverrides: {
+            root: {
+              flex: 'none',
+              minWidth: 200,
+            },
+          },
+        },
+        MuiSlider: {
+          styleOverrides: {
+            valueLabel: {
+              top: -22,
+              '& *': {
+                background: 'transparent',
+                color: fgColor,
+              },
+            },
+            thumb: {
+              height: 24,
+              width: 24,
+              marginTop: -11,
+            },
+          },
         },
       },
       palette: {
-        type: colorMode,
+        mode: colorMode,
         background: {
           default: bgColor,
           paper: blue.A700,
@@ -121,86 +231,6 @@ const useTheme = (themeColor?: 'light' | 'dark'): Theme => {
           md: 1024, // pc
           lg: 1000000000,
           xl: 1000000000,
-        },
-      },
-      overrides: {
-        MuiAppBar: {
-          colorPrimary: {
-            backgroundColor: bgColor,
-          },
-        },
-        MuiPaper: {
-          root: {
-            backgroundColor: bgColor,
-          },
-        },
-        MuiButton: {
-          root: {
-            textTransform: 'none',
-            color: 'white',
-          },
-          label: {
-            fontSize: '1rem',
-          },
-        },
-        MuiTab: {
-          textColorInherit: {
-            fontSize: '1rem',
-          },
-        },
-        MuiInputLabel: {
-          root: {
-            '&$focused': {
-              fontWeight: 'bold',
-            },
-          },
-        },
-        MuiInput: {},
-        MuiOutlinedInput: {
-          input: {
-            WebkitBoxShadow: '0 0 0 100px ${bgColor} inset',
-          },
-        },
-        MuiFormLabel: {
-          root: {
-            '&$focused': {
-              fontWeight: 'bold',
-            },
-          },
-        },
-        MuiFormControl: {
-          root: {
-            width: '-webkit-fill-available',
-          },
-        },
-        MuiContainer: {
-          root: {
-            marginTop: 80,
-          },
-        },
-        MuiList: {},
-        MuiListItem: {},
-        MuiListItemText: {
-          root: {
-            flex: 'none',
-            minWidth: 200,
-          },
-        },
-        MuiSwitch: {},
-        MuiTypography: {},
-        MuiSlider: {
-          valueLabel: {
-            top: -22,
-            '& *': {
-              background: 'transparent',
-              color: fgColor,
-            },
-          },
-          thumb: {
-            height: 24,
-            width: 24,
-            marginTop: -11,
-          },
         },
       },
     }), [colorMode, fgColor, bgColor],

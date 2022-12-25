@@ -1,26 +1,18 @@
-import type {FC} from 'react';
-import type {ScatterDataPoint} from 'chart.js';
-import React, {memo, useRef, useState, useEffect} from 'react';
-import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
-import {Chart} from 'chart.js';
+import type { FC } from 'react';
+import type { ScatterDataPoint } from 'chart.js';
+import React, { memo, useRef, useState, useEffect } from 'react';
+import Box from '@mui/material/Box';
+import { Chart } from 'chart.js';
 import useTheme from '@/hooks/useTheme';
-import {useStoreContext} from '@/Store';
-
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  root: {
-    // eslint-disable-next-line no-magic-numbers
-    padding: theme.spacing(0, 2),
-  },
-}));
+import { useStoreContext } from '@/Store';
 
 const Timeline: FC<{
   data: Array<ScatterDataPoint>;
-}> = memo(({data}) => {
-  const classes               = useStyles();
-  const [chart, setChart]     = useState<Chart | null>(null);
-  const container             = useRef<HTMLCanvasElement>(null);
-  const {store: {themeColor}} = useStoreContext();
-  const themeObject           = useTheme(themeColor);
+}> = memo(({ data }) => {
+  const [chart, setChart]         = useState<Chart | null>(null);
+  const container                 = useRef<HTMLCanvasElement>(null);
+  const { store: { themeColor } } = useStoreContext();
+  const themeObject               = useTheme(themeColor);
 
   useEffect(() => {
     if (!container.current) {
@@ -48,7 +40,7 @@ const Timeline: FC<{
         },
         options: {
           plugins: {
-            legend: {display: false},
+            legend: { display: false },
           },
           scales: {
             x: {
@@ -90,7 +82,9 @@ const Timeline: FC<{
     }
   }, [data]);
 
-  return <canvas className={classes.root} ref={container}/>;
+  return <Box sx={{ paddingY: 0, paddingX: 2 }}>
+    <canvas ref={container}/>
+  </Box>;
 });
 
 Timeline.displayName = 'Timeline';

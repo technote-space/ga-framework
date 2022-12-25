@@ -1,23 +1,13 @@
-import type {FC} from 'react';
-import React, {memo} from 'react';
-import {makeStyles, createStyles} from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
-import {Switching} from '@/components';
-import {AppOptions} from '$/types';
-
-const useStyles = makeStyles(() => createStyles({
-  root: {
-    margin: 'auto',
-    height: 'calc(100% - 50px)',
-  },
-}));
+import type { FC } from 'react';
+import type { AppOptions } from '$/types';
+import React, { memo } from 'react';
+import Box from '@mui/material/Box';
+import { Switching } from '@/components';
 
 const ContentEx: FC<{
   options: AppOptions;
-}> = memo(({options}) => {
-  const classes = useStyles();
-
-  return <Box className={classes.root}>
+}> = memo(({ options }) => {
+  return <Box sx={{ margin: 'auto', height: 'calc(100% - 50px)' }}>
     <Switching options={options}/>
   </Box>;
 });

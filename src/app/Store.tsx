@@ -1,7 +1,7 @@
-import type {FC} from 'react';
-import type {AppOptions} from '$/types';
-import React, {memo, useReducer, createContext, useContext, useCallback, useEffect} from 'react';
-import {getProcessContext} from './common';
+import type { FC, PropsWithChildren } from 'react';
+import type { AppOptions } from '$/types';
+import React, { memo, useReducer, createContext, useContext, useCallback, useEffect } from 'react';
+import { getProcessContext } from './common';
 
 const StoreContext           = createContext({});
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -59,7 +59,7 @@ const resultReducer = (store, result) => {
   const index = histories.findIndex(value => value.x === dataX);
   // eslint-disable-next-line no-magic-numbers
   if (index < 0) {
-    histories.push({x: dataX, y: dataY});
+    histories.push({ x: dataX, y: dataY });
   } else {
     histories[index].y = dataY;
   }
@@ -71,20 +71,20 @@ const resultReducer = (store, result) => {
 };
 
 const reducerActions             = {
-  PAGE: (store, action) => ({...store, page: action.page}),
-  THEME_COLOR: (store, action) => ({...store, themeColor: action.themeColor}),
-  WORKER: (store, action) => ({...store, worker: action.worker}),
+  PAGE: (store, action) => ({ ...store, page: action.page }),
+  THEME_COLOR: (store, action) => ({ ...store, themeColor: action.themeColor }),
+  WORKER: (store, action) => ({ ...store, worker: action.worker }),
   UPDATE_STATUS: (store, action) => {
     if (store.status === 'disabled') {
       return store;
     }
 
-    return {...store, status: action.result.status};
+    return { ...store, status: action.result.status };
   },
-  RELOAD_WORKER: (store) => ({...store, reloadWorker: !store.reloadWorker}),
-  SET_NOTICE: (store, action) => ({...store, notice: {...store.notice, ...{open: true, variant: 'success'}, ...action.notice}}),
-  SET_ERROR: (store, action) => ({...store, notice: {...store.notice, ...{open: true, variant: 'error'}, ...action.notice}}),
-  CLOSE_NOTICE: (store) => ({...store, notice: {...store.notice, ...{open: false}}}),
+  RELOAD_WORKER: (store) => ({ ...store, reloadWorker: !store.reloadWorker }),
+  SET_NOTICE: (store, action) => ({ ...store, notice: { ...store.notice, ...{ open: true, variant: 'success' }, ...action.notice } }),
+  SET_ERROR: (store, action) => ({ ...store, notice: { ...store.notice, ...{ open: true, variant: 'error' }, ...action.notice } }),
+  CLOSE_NOTICE: (store) => ({ ...store, notice: { ...store.notice, ...{ open: false } } }),
   PAGINATION_INITIALIZED: (store) => ({
     ...store,
     pagination: {
@@ -116,9 +116,9 @@ const reducerActions             = {
     return store;
   },
 };
-const StoreContextProvider: FC<{
+const StoreContextProvider: FC<PropsWithChildren<{
   options: AppOptions;
-}>                               = memo(({children, options}) => {
+}>>                              = memo(({ children, options }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getReducer        = useCallback((store, action): any => {
     if (action.type in reducerActions) {
@@ -141,11 +141,11 @@ const StoreContextProvider: FC<{
     onReloadNeeded().then();
   }, []);
 
-  return <StoreContext.Provider value={{store}}>
-    <DispatchContext.Provider value={{dispatch, onReloadNeeded}}>
+  return <StoreContext.Provider value={{ store }}>
+    <DispatchContext.Provider value={{ dispatch, onReloadNeeded }}>
       {children}
     </DispatchContext.Provider>
   </StoreContext.Provider>;
 });
 StoreContextProvider.displayName = 'StoreContextProvider';
-export {StoreContextProvider};
+export { StoreContextProvider };
