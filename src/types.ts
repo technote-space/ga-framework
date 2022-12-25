@@ -1,4 +1,4 @@
-import type {ReactElement} from 'react';
+import type { ReactElement } from 'react';
 
 type PageType = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

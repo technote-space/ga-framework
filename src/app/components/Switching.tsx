@@ -1,16 +1,16 @@
-import type {ReactElement, FC} from 'react';
-import React, {memo, useMemo, useState, useEffect} from 'react';
-import {useStoreContext, useDispatchContext} from '@/Store';
-import {LoadingAnimation} from '@/components';
-import {AppOptions} from '$/types';
+import type { ReactElement, FC } from 'react';
+import type { AppOptions } from '$/types';
+import React, { memo, useMemo, useState, useEffect } from 'react';
+import { useStoreContext, useDispatchContext } from '@/Store';
+import { LoadingAnimation } from '@/components';
 
 const Switching: FC<{
   options: AppOptions;
-}> = memo(({options}) => {
-  const {store: {page, status}, store} = useStoreContext();
-  const {dispatch}                     = useDispatchContext();
-  const [nextPage, setNextPage]        = useState<ReactElement | null>(null);
-  const [components, setComponents]    = useState({});
+}> = memo(({ options }) => {
+  const { store: { page, status }, store } = useStoreContext();
+  const { dispatch }                       = useDispatchContext();
+  const [nextPage, setNextPage]            = useState<ReactElement | null>(null);
+  const [components, setComponents]        = useState({});
 
   const hidePages       = useMemo(() => options.hidePages ? options.hidePages(store) : null, [store]);
   const searchValidPage = () => {
@@ -42,13 +42,13 @@ const Switching: FC<{
     // eslint-disable-next-line no-magic-numbers
     window.scrollTo(0, 0);
     if (!page) {
-      dispatch({type: 'PAGE', page: Object.keys(options.pages)[0]});
+      dispatch({ type: 'PAGE', page: Object.keys(options.pages)[0] });
       return;
     }
 
     if (page in options.pages) {
       if (hidePages && hidePages.includes(page)) {
-        dispatch({type: 'PAGE', page: searchValidPage()});
+        dispatch({ type: 'PAGE', page: searchValidPage() });
         return;
       }
 
@@ -56,7 +56,7 @@ const Switching: FC<{
         setNextPage(components[page]);
       } else {
         const component = options.pages[page].component();
-        setComponents({...components, ...{[page]: component}});
+        setComponents({ ...components, ...{ [page]: component } });
         setNextPage(component);
       }
     }

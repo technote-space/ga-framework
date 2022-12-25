@@ -1,5 +1,5 @@
-import {ProcessBase} from '@technote-space/worker-controller';
-import {IGeneticAlgorithm} from '../Algorithm';
+import type { IGeneticAlgorithm } from '../Algorithm';
+import { ProcessBase } from '@technote-space/worker-controller';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 global['Process'] = class Process extends ProcessBase<any> {

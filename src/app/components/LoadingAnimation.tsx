@@ -1,19 +1,11 @@
-import type {FC} from 'react';
-import React, {memo} from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-
-const useStyles = makeStyles(() => ({
-  loading: {
-    textAlign: 'center',
-  },
-}));
+import type { FC } from 'react';
+import React, { memo } from 'react';
+import Box from '@mui/material/Box';
 
 const LoadingAnimation: FC = memo(() => {
-  const classes = useStyles();
-
-  return <div className={classes.loading}>
+  return <Box sx={{ textAlign: 'center' }}>
     <img src={'images/loading.svg'} alt="Loading"/>
-  </div>;
+  </Box>;
 });
 
 LoadingAnimation.displayName = 'LoadingAnimation';

@@ -1,9 +1,8 @@
 /* eslint-disable no-magic-numbers */
-import type {FC, ElementType, ReactElement} from 'react';
-import type {Theme} from '@material-ui/core/styles';
-import React, {memo, useEffect} from 'react';
-import {makeStyles, createStyles} from '@material-ui/core/styles';
+import type { FC, ElementType, ReactElement } from 'react';
+import React, { memo, useEffect } from 'react';
 import {
+  Box,
   Table,
   TableBody,
   TableCell,
@@ -13,49 +12,35 @@ import {
   TableRow,
   Paper,
   IconButton,
-} from '@material-ui/core';
-import {TablePaginationActionsProps} from '@material-ui/core/TablePagination/TablePaginationActions';
+} from '@mui/material';
+import { TablePaginationActionsProps } from '@mui/material/TablePagination/TablePaginationActions';
 import {
   FirstPage as FirstPageIcon,
   KeyboardArrowLeft,
   KeyboardArrowRight,
   LastPage as LastPageIcon,
-} from '@material-ui/icons';
-import {useStoreContext, useDispatchContext} from '@/Store';
+} from '@mui/icons-material';
+import { useStoreContext, useDispatchContext } from '@/Store';
 
-const useStyles1 = makeStyles((theme: Theme) => createStyles({
-  root: {
-    flexShrink: 0,
-    marginLeft: theme.spacing(2),
-  },
-}));
-const useStyles2 = makeStyles({
-  table: {
-    minWidth: 500,
-  },
-});
-
-const TablePaginationActions: ElementType<TablePaginationActionsProps> = ({count, page, rowsPerPage, onChangePage}) => {
-  const classes = useStyles1();
-
+const TablePaginationActions: ElementType<TablePaginationActionsProps> = ({ count, page, rowsPerPage, onPageChange }) => {
   const handleFirstPageButtonClick = (event): void => {
-    onChangePage(event, 0);
+    onPageChange(event, 0);
   };
 
   const handleBackButtonClick = (event): void => {
-    onChangePage(event, page - 1);
+    onPageChange(event, page - 1);
   };
 
   const handleNextButtonClick = (event): void => {
-    onChangePage(event, page + 1);
+    onPageChange(event, page + 1);
   };
 
   const handleLastPageButtonClick = (event): void => {
-    onChangePage(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+    onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
   };
 
   return (
-    <div className={classes.root}>
+    <Box sx={{ flexShrink: 0, marginLeft: 2 }}>
       <IconButton
         onClick={handleFirstPageButtonClick}
         disabled={page === 0}
@@ -80,7 +65,7 @@ const TablePaginationActions: ElementType<TablePaginationActionsProps> = ({count
       >
         <LastPageIcon/>
       </IconButton>
-    </div>
+    </Box>
   );
 };
 
@@ -90,36 +75,35 @@ const List: FC<{
   render: (any, index: number) => ReactElement;
   rowsPerPageOptions?: Array<number>;
   defaultPerPage?: number;
-}> = memo(({population, render, rowsPerPageOptions, defaultPerPage}) => {
-  const classes                                                 = useStyles2();
-  const {store: {pagination: {page, rowsPerPage, initialized}}} = useStoreContext();
-  const {dispatch}                                              = useDispatchContext();
+}> = memo(({ population, render, rowsPerPageOptions, defaultPerPage }) => {
+  const { store: { pagination: { page, rowsPerPage, initialized } } } = useStoreContext();
+  const { dispatch }                                                  = useDispatchContext();
 
   const emptyRows               = rowsPerPage - Math.min(rowsPerPage, population.length - page * rowsPerPage);
   const handlePageChange        = (event, newPage) => {
-    dispatch({type: 'PAGINATION_PAGE', page: newPage});
+    dispatch({ type: 'PAGINATION_PAGE', page: newPage });
   };
   const handleRowsPerPageChange = (event) => {
-    dispatch({type: 'PAGINATION_PER_PAGE', rowsPerPage: parseInt(event.target.value, 10)});
-    dispatch({type: 'PAGINATION_PAGE', page: 0});
+    dispatch({ type: 'PAGINATION_PER_PAGE', rowsPerPage: parseInt(event.target.value, 10) });
+    dispatch({ type: 'PAGINATION_PAGE', page: 0 });
   };
 
   useEffect(() => {
     if (!initialized) {
       if (defaultPerPage) {
         if (defaultPerPage !== rowsPerPage) {
-          dispatch({type: 'PAGINATION_PER_PAGE', rowsPerPage: defaultPerPage});
+          dispatch({ type: 'PAGINATION_PER_PAGE', rowsPerPage: defaultPerPage });
         }
       } else if (rowsPerPageOptions && rowsPerPageOptions[0] !== rowsPerPage) {
-        dispatch({type: 'PAGINATION_PER_PAGE', rowsPerPage: rowsPerPageOptions[0]});
+        dispatch({ type: 'PAGINATION_PER_PAGE', rowsPerPage: rowsPerPageOptions[0] });
       }
-      dispatch({type: 'PAGINATION_INITIALIZED'});
+      dispatch({ type: 'PAGINATION_INITIALIZED' });
     }
   }, []);
 
 
   return <TableContainer component={Paper}>
-    <Table className={classes.table}>
+    <Table sx={{ minWidth: 500 }}>
       <TableBody>
         {(rowsPerPage > 0 ? population.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : population).map((row, index) => (
           <TableRow key={index}>
@@ -128,7 +112,7 @@ const List: FC<{
         ))}
 
         {emptyRows > 0 && (
-          <TableRow style={{height: 53 * emptyRows}}>
+          <TableRow style={{ height: 53 * emptyRows }}>
             <TableCell colSpan={6}/>
           </TableRow>
         )}
@@ -142,7 +126,7 @@ const List: FC<{
             rowsPerPage={rowsPerPage}
             page={page}
             SelectProps={{
-              inputProps: {'aria-label': 'rows per page'},
+              inputProps: { 'aria-label': 'rows per page' },
               native: true,
             }}
             onPageChange={handlePageChange}

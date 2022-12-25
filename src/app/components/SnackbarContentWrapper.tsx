@@ -1,18 +1,15 @@
-import type {FC, MouseEventHandler} from 'react';
-import type {Theme} from '@material-ui/core/styles';
-import React, {memo} from 'react';
-import clsx from 'clsx';
+import type { FC, MouseEventHandler } from 'react';
+import React, { memo } from 'react';
 import {
   CheckCircle as CheckCircleIcon,
   Error as ErrorIcon,
   Info as InfoIcon,
   Close as CloseIcon,
   Warning as WarningIcon,
-} from '@material-ui/icons';
-import {amber, green} from '@material-ui/core/colors';
-import IconButton from '@material-ui/core/IconButton';
-import SnackbarContent from '@material-ui/core/SnackbarContent';
-import {makeStyles, createStyles} from '@material-ui/core/styles';
+} from '@mui/icons-material';
+import { Box, IconButton } from '@mui/material';
+import { amber, green } from '@mui/material/colors';
+import SnackbarContent from '@mui/material/SnackbarContent';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -21,57 +18,36 @@ const variantIcon = {
   info: InfoIcon,
 };
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  success: {
-    backgroundColor: green[600],
-  },
-  error: {
-    backgroundColor: theme.palette.error.dark,
-  },
-  info: {
-    backgroundColor: theme.palette.primary.main,
-  },
-  warning: {
-    backgroundColor: amber[700],
-  },
-  icon: {
-    fontSize: 20,
-  },
-  iconVariant: {
-    opacity: 0.9,
-    // eslint-disable-next-line no-magic-numbers
-    marginRight: theme.spacing(1),
-  },
-  message: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-}));
-
 const SnackbarContentWrapper: FC<{
-  className: string;
+  className?: string;
   message: string;
   onClose: MouseEventHandler;
   variant: 'error' | 'info' | 'success' | 'warning';
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   other?: any;
-}> = memo(({className, message, onClose, variant, ...other}) => {
+}> = memo(({ className, message, onClose, variant, ...other }) => {
   const Icon    = variantIcon[variant];
-  const classes = useStyles();
+  const colors = {
+    success: green[600],
+    error: 'error.dark',
+    info: 'primary.main',
+    warning: amber[700],
+  };
 
   return (
     <SnackbarContent
-      className={clsx(classes[variant], className)}
+      className={className}
+      sx={{ backgroundColor: colors[variant] }}
       aria-describedby="client-snackbar"
       message={
-        <span id="client-snackbar" className={classes.message}>
-          <Icon className={clsx(classes.icon, classes.iconVariant)}/>
+        <Box id="client-snackbar" sx={{ display: 'flex', alignItems: 'center' }}>
+          <Icon sx={{ fontSize: 20, opacity: 0.9, marginRight: 1 }}/>
           {message}
-        </span>
+        </Box>
       }
       action={[
         <IconButton key="close" aria-label="close" color="inherit" onClick={onClose}>
-          <CloseIcon className={classes.icon}/>
+          <CloseIcon sx={{ fontSize: 20 }}/>
         </IconButton>,
       ]}
       {...other}
