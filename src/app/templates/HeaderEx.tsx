@@ -16,10 +16,8 @@ const HeaderEx: FC<{
     minWidth: 0,
     fontSize: 18,
     display: {
-      display: 'none',
-      md: {
-        display: 'inherit',
-      },
+      xs: 'none',
+      md: 'inherit',
     },
   }}>{title}</Typography>, []);
   const beforeHeaderTitle = useMemo(() => options.parts?.beforeHeaderTitle ? options.parts.beforeHeaderTitle() : null, []);

@@ -27,7 +27,7 @@ const Graph: FC<{
     );
   }, [nodes, edges, options]);
 
-  return <Box sx={{ height: '100%', padding: 20 }} ref={container}/>;
+  return <Box sx={{ height: '100%', padding: '20px' }} ref={container}/>;
 });
 
 Graph.displayName = 'Graph';

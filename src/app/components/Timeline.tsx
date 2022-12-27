@@ -1,10 +1,11 @@
 import type { FC } from 'react';
 import type { ScatterDataPoint } from 'chart.js';
 import React, { memo, useRef, useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
-import { Chart } from 'chart.js';
+import { Chart, registerables } from 'chart.js';
 import useTheme from '@/hooks/useTheme';
 import { useStoreContext } from '@/Store';
+
+Chart.register(...registerables);
 
 const Timeline: FC<{
   data: Array<ScatterDataPoint>;
@@ -82,9 +83,7 @@ const Timeline: FC<{
     }
   }, [data]);
 
-  return <Box sx={{ paddingY: 0, paddingX: 2 }}>
-    <canvas ref={container}/>
-  </Box>;
+  return <canvas ref={container} style={{ padding: '0', paddingRight: 16, paddingLeft: 16 }}/>;
 });
 
 Timeline.displayName = 'Timeline';

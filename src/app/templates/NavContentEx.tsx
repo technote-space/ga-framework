@@ -57,23 +57,22 @@ const NavContentEx: FC<{
   useEffect(() => {
     if (worker) {
       setController(<Box sx={{
-        background: 'background.default',
         color: 'secondary.contrastText',
-        marginTop: 10,
-        padding: 5,
+        marginTop: '10px',
+        padding: '5px',
       }}>
         <Box sx={{ textAlign: 'center' }}>
           <Button
-            sx={{ margin: 5 }}
+            sx={{ margin: '5px' }}
             onClick={control.reset(store)}
             disabled={status === 'disabled' || (status !== 'initialized' && status !== 'finished' && status !== 'canceled')}
           >
             Reset
           </Button>
-          <Button sx={{ margin: 5 }} onClick={control.start(store)} disabled={status === 'disabled' || (status !== 'initialized' && status !== 'canceled')}>
+          <Button sx={{ margin: '5px' }} onClick={control.start(store)} disabled={status === 'disabled' || (status !== 'initialized' && status !== 'canceled')}>
             Start
           </Button>
-          <Button sx={{ margin: 5 }} onClick={control.stop(store)} disabled={status === 'disabled' || status !== 'started'}>
+          <Button sx={{ margin: '5px' }} onClick={control.stop(store)} disabled={status === 'disabled' || status !== 'started'}>
             Stop
           </Button>
         </Box>
